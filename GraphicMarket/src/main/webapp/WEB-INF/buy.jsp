@@ -16,33 +16,31 @@
 <!-- -------------------------- -->
 
 <main>
+
+	<table>
+		<thead>
+			<tr>
+				<th>Productos</th>
+				<th>Precio</th>
+				
+			</tr>
+		</thead>
+		<tbody>
+			<c:forEach items="${kartProducts}" var="product">
+				<tr>
+					<td>${product.name}</td>
+					<td>${product.price} <a class="btn btn-danger btn-sm" style="border-radius:50%;" href="/ruta/borrar/producto/carrito"></a></td>
+					
+				</tr>
+			</c:forEach>
+		</tbody>
+	</table>
 	<div class="row w-100 h-1 border-bottom border-gray-500 d-flex justify-content-between" >
-		<div class="col">
-			<h2>Productos</h2>
-			
-			<!-- <c:foreach items="${kartProducts}" var="product"> -->
-			<!-- <h3>${product.name}</h3> -->
-			<!-- </c:foreach> -->
-		</div>
-		
-		<div class="col">
-			<h2>Precio</h2>
-			<!-- <c:foreach items="${kartProducts}" var="product"  Suponiendo en sesion un objeto kartProducts-->
-			<!-- <h3>${product.price}</h3> -->
-			<!-- </c:foreach> -->
-		</div>
-		
+		<h2>Total:</h2>
+		<h3>${kartProducts.total}</h3>
 	</div>
-	<div class="row d-flex justify-content-between">
-		<div class="col">
-			<h2>Total:</h2>
-		</div>
-		<div class="col">
-			<!-- Encontrar forma de sumar el total del carrito -->
-			<!-- Solucion posible -> kartProducts.total y que ya este guardado en sesion -->
-		</div>
-	</div>
-</main>
+	
+	
 
 
 <!-- -------------------------- -->
