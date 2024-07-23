@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 
 import com.graphicmarket.models.Product;
 import com.graphicmarket.models.Seller;
+import com.graphicmarket.services.ProductService;
 
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
@@ -19,7 +20,7 @@ import jakarta.validation.Valid;
 @Controller 
 public class ProductController {
 	@Autowired
-	private placeHolder serv;
+	private ProductService serv;
 	
 	
 	@GetMapping("/product/{id}")
@@ -107,7 +108,7 @@ public class ProductController {
 		if(result.hasErrors()) {
 			return "productEdit.jsp";
 		}else {
-			serv.saveproduct(product);
+			serv.saveProduct(product);
 		}
  		return "redirect:/profile";
 		
