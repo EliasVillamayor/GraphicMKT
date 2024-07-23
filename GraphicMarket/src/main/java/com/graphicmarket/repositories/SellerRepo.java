@@ -7,5 +7,7 @@ import com.graphicmarket.models.Seller;
 
 @Repository
 public interface SellerRepo extends CrudRepository<Seller, Long> {
+	
 	Seller findByEmail(String email);
+	
 }

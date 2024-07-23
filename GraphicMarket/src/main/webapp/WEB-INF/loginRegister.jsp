@@ -27,8 +27,8 @@
                      <input type="text" class="form-control m-2 " placeholder="Contrase�a:" aria-label="password">
                  </div>
                </div>
-             <input type="submit" class="btn btn-secondary m-4" value="Iniciar Sesion"/>
-           </form>
+             	<input type="submit" class="btn btn-secondary m-4" value="Iniciar Sesion"/>
+           	</form>
         </div> 
           <div class="d-flex m-5" style="height: 550px;">
                <div class="vr"></div>

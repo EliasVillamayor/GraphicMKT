@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.graphicmarket.models.Seller;
+import com.graphicmarket.services.SessionService;
 
 import ch.qos.logback.core.model.Model;
 import jakarta.servlet.http.HttpSession;
@@ -17,14 +18,15 @@ import jakarta.validation.Valid;
 @Controller 
 public class SessionController {
 	@Autowired
-	private placeholder serv;
+	private SessionService serv;
 	
 	@PostMapping("/register")
-	public String register(@Valid @ModelAttribute("newUser") Seller newSeller,
+	public String registerController(@Valid @ModelAttribute("newSeller") Seller newSeller,
 						   BindingResult result,
 						   HttpSession session,
 						   Model model) {
-		serv.register(newSeller, result);
+		
+		 serv.register(newSeller, result);
 		
 		if(result.hasErrors()) {
 			return "index.jsp";
