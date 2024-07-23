@@ -1,8 +1,4 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import="com.codingdojo.camila.modelos.User" %>
-<%@ page import="com.codingdojo.camila.modelos.PurchaseHistory" %>
-<%@ page import="com.codingdojo.camila.modelos.Producto" %>
-<%@ page import="java.util.List" %>
 
 
 <!DOCTYPE html>
@@ -13,95 +9,5 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-<!-- Primera fila del encabezado con nombre, buscador, y opciones de sesión -->
-    <nav class="navbar navbar-expand-lg navbar-custom" style="background-color: #9c27b0; color: white">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#" style="color: white">GraphicMarket </a>
-            <div class="search-container" style="width: 30%;padding: 10px">
-                <input type="text" class="search-input" placeholder="Buscar..." style="width: 100%;padding: 8px;border-radius: 20px">
-                <button class="search-button" style="position: absolute; background-color: #9c27b0; border: none; color: white; padding: 8px 16px;border-radius: 20px">Buscar</button>
-            </div>
-            <div class="ms-auto">
-                <a class="nav-link" href="#" style="color: white" style="margin-right: 5px">Iniciar sesion</a>
-                <a class="nav-link" href="#" style="color: white" style="margin-right: 5px">Registrarse</a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Segunda fila del encabezado con categorías, tendencias y ofertas -->
-    <nav class="navbar navbar-expand-lg navbar-custom" style="background-color: #9c27b0; color: white">
-        <div class="container-fluid">
-            <ul class="navbar-nav me-auto" style="color: white">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#" style="color: white">Categorias</a>
-                </li>
-                <li class="nav-item"style="margin-right: 5px" >
-                    <a class="nav-link" href="#" style="color: white" >Tendencias</a>
-                </li>
-                <li class="nav-item" style="margin-right: 5px">
-                    <a class="nav-link" href="#" style="color: white" >Ofertas</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-    
-    
-    
-    
-    <!-- Contenido principal -->
-    <div class="container my-4">
-        <!-- Perfil de Vendedor -->
-        <div class="row bg-light p-3 rounded">
-            <div class="col-md-3 text-center">
-                <img src="ruta/a/la/imagen-del-perfil.jpg" class="img-fluid rounded-circle" alt="Foto de perfil" style="width: 150px; height: 150px; background-color: #e0e0e0;">
-            </div>
-            <div class="col-md-9">
-                <h2><%= ((User)request.getAttribute("user")).getFirstName() %> <%= ((User)request.getAttribute("user")).getLastName() %></h2>
-                <p><%= ((User)request.getAttribute("user")).getEmail() %></p>
-                <p>Sobre mi:<br> <%= ((User)request.getAttribute("user")).getBio() %></p>
-            </div>
-        </div>
-        <!-- Productos del Vendedor -->
-        <div class="row mt-4">
-            <div class="col-12">
-                <h3>Mis productos</h3>
-                <div class="list-group">
-                    <%
-                        List<Producto> productos = (List<Producto>) request.getAttribute("productos");
-                        for (Producto producto : productos) {
-                    %>
-                    <a href="#" class="list-group-item list-group-item-action">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h5 class="mb-1"><%= producto.getTitulo() %></h5>
-                            <small>Precio: $<%= producto.getPrecio() %></small>
-                        </div>
-                        <p class="mb-1"><%= producto.getDescripcion() %></p>
-                    </a>
-                    <%
-                        }
-                    %>
-                </div>
-                <a href="/crearProducto" class="btn btn-primary mt-3">Crear nuevo producto</a>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Pie de página -->
-  <footer class="text-white text-center py-3" style="background-color: #9c27b0">
-    <div class="container" style="background-color: #9c27b0">
-        <div class="d-flex justify-content-between" style="background-color: #9c27b0">
-            <div>
-                <p>Redes:</p>
-                <p>Ayuda al consumidor</p>
-            </div>
-            <div>
-                <p>Contacto: info@graphicmarket.com</p>
-                <p>© 2024 GraphicMarket<p>
-            </div>
-        </div>
-    </div>
-</footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
