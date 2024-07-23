@@ -1,19 +1,13 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import="com.codingdojo.camila.modelos.User" %>
-<%@ page import="com.codingdojo.camila.modelos.PurchaseHistory" %>
-<%@ page import="com.codingdojo.camila.modelos.Producto" %>
-<%@ page import="java.util.List" %>
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Perfil de Vendedor - GraphicMarket</title>
+    <title>GraphicMarket</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
 </head>
 <body>
-<!-- Primera fila del encabezado con nombre, buscador, y opciones de sesiÃ³n -->
+<!-- Primera fila del encabezado con nombre, buscador, y opciones de sesión -->
     <nav class="navbar navbar-expand-lg navbar-custom" style="background-color: #9c27b0; color: white">
         <div class="container-fluid">
             <a class="navbar-brand" href="#" style="color: white">GraphicMarket </a>
@@ -28,7 +22,7 @@
         </div>
     </nav>
 
-    <!-- Segunda fila del encabezado con categorÃ­as, tendencias y ofertas -->
+    <!-- Segunda fila del encabezado con categorías, tendencias y ofertas -->
     <nav class="navbar navbar-expand-lg navbar-custom" style="background-color: #9c27b0; color: white">
         <div class="container-fluid">
             <ul class="navbar-nav me-auto" style="color: white">
@@ -49,44 +43,26 @@
     
     
     <!-- Contenido principal -->
-    <div class="container my-4">
-        <!-- Perfil de Vendedor -->
-        <div class="row bg-light p-3 rounded">
-            <div class="col-md-3 text-center">
-                <img src="ruta/a/la/imagen-del-perfil.jpg" class="img-fluid rounded-circle" alt="Foto de perfil" style="width: 150px; height: 150px; background-color: #e0e0e0;">
-            </div>
-            <div class="col-md-9">
-                <h2><%= ((User)request.getAttribute("user")).getFirstName() %> <%= ((User)request.getAttribute("user")).getLastName() %></h2>
-                <p><%= ((User)request.getAttribute("user")).getEmail() %></p>
-                <p>Sobre mi:<br> <%= ((User)request.getAttribute("user")).getBio() %></p>
-            </div>
+    <div class="container my-4" style="background-color: #ffffff; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+    <div class="row">
+        <div class="col-md-6">
+            <img src="ruta/a/la/imagen.jpg" class="img-fluid" alt="Descripcion de la imagen">
+            <div style="background-color: #e0e0e0; height: 300px; width: 100%; border-radius: 4px;"></div>
         </div>
-        <!-- Productos del Vendedor -->
-        <div class="row mt-4">
-            <div class="col-12">
-                <h3>Mis productos</h3>
-                <div class="list-group">
-                    <%
-                        List<Producto> productos = (List<Producto>) request.getAttribute("productos");
-                        for (Producto producto : productos) {
-                    %>
-                    <a href="#" class="list-group-item list-group-item-action">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h5 class="mb-1"><%= producto.getTitulo() %></h5>
-                            <small>Precio: $<%= producto.getPrecio() %></small>
-                        </div>
-                        <p class="mb-1"><%= producto.getDescripcion() %></p>
-                    </a>
-                    <%
-                        }
-                    %>
-                </div>
-                <a href="/crearProducto" class="btn btn-primary mt-3">Crear nuevo producto</a>
-            </div>
+        <div class="col-md-6">
+            <h2 class="mb-3">${producto.titulo}</h2>
+            <p class="font-weight-bold mb-1"><Strong>Autor: </strong>${producto.autor}</p>
+            <p class="mb-3">${producto.descripcion}</p>
+            <p class="mb-2"><strong>Precio:</strong> $${producto.precio}</p>
+            <p class="mb-4"><strong>Categorias:</strong> ${producto.categorias}</p>
+            <button class="btn btn-custom" style="background-color: #9c27b0; color: white;">Agregar al carrito!</button>
+            <button class="btn btn" style="border: 2px solid #9c27b0; color: #9c27b0;">Contactar al vendedor</button>
+         
         </div>
     </div>
-    
-    <!-- Pie de pÃ¡gina -->
+</div>
+
+    <!-- Pie de página -->
   <footer class="text-white text-center py-3" style="background-color: #9c27b0">
     <div class="container" style="background-color: #9c27b0">
         <div class="d-flex justify-content-between" style="background-color: #9c27b0">
@@ -96,11 +72,12 @@
             </div>
             <div>
                 <p>Contacto: info@graphicmarket.com</p>
-                <p>Â© 2024 GraphicMarket<p>
+                <p>© 2024 GraphicMarket<p>
             </div>
         </div>
     </div>
 </footer>
+  
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
