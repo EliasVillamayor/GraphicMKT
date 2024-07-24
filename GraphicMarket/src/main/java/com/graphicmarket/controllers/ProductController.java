@@ -1,5 +1,8 @@
 package com.graphicmarket.controllers;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,8 +15,10 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.graphicmarket.models.Category;
 import com.graphicmarket.models.Product;
 import com.graphicmarket.models.Seller;
+import com.graphicmarket.services.CategoryService;
 import com.graphicmarket.services.ImageService;
 import com.graphicmarket.services.ProductService;
 
@@ -25,7 +30,11 @@ public class ProductController {
 	@Autowired
 	private ProductService prodServ;
 	
-	@Autowired ImageService imgServ;
+	@Autowired 
+	ImageService imgServ;
+	
+	@Autowired
+	CategoryService catServ;
 	
 	@GetMapping("/product/{id}")
 	public String Product(@PathVariable("id")Long productId,
@@ -34,7 +43,7 @@ public class ProductController {
 			Model model) {
 		
 		/* === REVISAMOS SESION === */
-		Seller userTemp = (Seller) session.getAttribute("userInSession"); //Obj User o null
+		Seller userTemp = (Seller) session.getAttribute("sellerInSession"); //Obj User o null
 		if(userTemp == null) {
 			return "redirect:/";
 		}
@@ -46,50 +55,92 @@ public class ProductController {
 	}
 	
 	@GetMapping("/product/new")
-	public String newProduct(@ModelAttribute("newProduct")Product product,
-			BindingResult result,
-			HttpSession session,
-			Model model) {
+	public String newProduct(HttpSession session,
+							 Model model) {
 		
 		/* === REVISAMOS SESION === */
-		Seller userTemp = (Seller) session.getAttribute("userInSession"); //Obj User o null
+		Seller userTemp = (Seller) session.getAttribute("sellerInSession"); //Obj User o null
 		if(userTemp == null) {
 			return "redirect:/";
 		}
 		/* === REVISAMOS SESION === */
 		
-		model.addAttribute("newProduct",new Product());
+		//Enviamos al jsp la lista de todas las categorias para seleccionar
+		List<Category> categories = catServ.allCategories();
+		model.addAttribute("categories", categories);
+		
+		
 		
 		return "productCreate.jsp";
 	}
 	
-	@PostMapping("/product/create")
-	public String createProduct(@Valid @ModelAttribute("newProduct")Product product,
-								BindingResult result,
-								HttpSession session,
-								Model model,
-								@RequestParam("file")MultipartFile file) {
+	@PostMapping("/product/new/Fill")
+	public String newProductFill(@RequestParam("file") MultipartFile file,
+								@RequestParam("categories") Long[] categoryIds,
+								HttpSession session) {
 		
+		/* === REVISAMOS SESION === */
+		Seller userTemp = (Seller) session.getAttribute("sellerInSession"); //Obj User o null
+		if(userTemp == null) {
+			return "redirect:/";
+		}
+		/* === REVISAMOS SESION === */
 		
-		Product productTemp = product;
-		String nombreArchivo;
+		//Guardar los datos en sesion
 		
-		try {
-			
+		//Primero guardamos la direccion de la imagen
+		String nombreArchivo = "";
+		try {	
 			nombreArchivo = imgServ.saveIMG(file, "/productIMG");
-			productTemp.setProductImage(nombreArchivo);
-			
 			if(nombreArchivo.equals("error")){
-				return "productCreate.jsp";
+				return "redirect:/productCreate";
 			}
-			
-			
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
+		session.setAttribute("nombreArchivo", nombreArchivo);
+		
+		//despues las categorias
+		List<Category> categories = new ArrayList<>();
+
+	    for (Long categoryId : categoryIds) {
+	        Category category = catServ.findCategory(categoryId);
+	        if (category != null) {
+	            categories.add(category);
+	        }
+	    }
+	    session.setAttribute("categories", categories);
+
+		
+		
+	    return "redirect:/product/new/price";
+		
+	}
+	
+	@GetMapping("/product/new/price")
+	public String newProductPrice(@ModelAttribute("product")Product product,
+								   Model model,
+								   HttpSession session
+									) {
+		
+		/* === REVISAMOS SESION === */
+		Seller userTemp = (Seller) session.getAttribute("sellerInSession"); //Obj User o null
+		if(userTemp == null) {
+			return "redirect:/";
+		}
+		/* === REVISAMOS SESION === */
 		
 		
 		
+		return "fillPrice.jsp";
+		
+	}
+	
+	@PostMapping("/product/create")
+	public String createProduct(@Valid @ModelAttribute("product")Product product,
+								BindingResult result,
+								HttpSession session,
+								Model model){
 		
 		/* === REVISAMOS SESION === */
 		Seller userTemp = (Seller) session.getAttribute("userInSession"); //Obj User o null
@@ -99,7 +150,32 @@ public class ProductController {
 		/* === REVISAMOS SESION === */
 		
 		
-		prodServ.saveProduct(product);
+		
+		
+		//Obtenemos las categorias
+		List<Category> categories = (List<Category>) session.getAttribute("categories");
+		//Obtenemos la ruta de la imagen
+		String nombreArchivo = (String) session.getAttribute("nombreArchivo");
+		//Obtenemos el autor
+		Seller autor = (Seller) session.getAttribute("sellerInSession");
+		
+		
+		
+		//llenamos el producto
+		Product filledProduct = product;
+		filledProduct.setCategories(categories);
+		filledProduct.setProductImage(nombreArchivo);
+		filledProduct.setSeller(autor);
+		
+		
+		
+		//Guardamos el producto con los datos llenados	
+		prodServ.saveProduct(filledProduct);
+		
+		//limpiamos la sesion
+		session.removeAttribute("nombreArchivo");
+		session.removeAttribute("categories");
+		
 		return "redirect:/profile";
 	}
 	
