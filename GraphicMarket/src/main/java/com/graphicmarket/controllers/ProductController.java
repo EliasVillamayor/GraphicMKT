@@ -59,7 +59,7 @@ public class ProductController {
 		return "productCreate.jsp";
 	}
 	
-	@PostMapping("/Product/create")
+	@PostMapping("/product/create")
 	public String createProduct(@Valid @ModelAttribute("newProduct")Product product,
 			BindingResult result,
 			HttpSession session,
@@ -93,7 +93,7 @@ public class ProductController {
 		return "productEdit.jsp";
 	}
 	
-	@PutMapping("/Product/update")
+	@PutMapping("/product/update")
 	public String updateProduct(@Valid @ModelAttribute("product")Product product,
 			HttpSession session,
  			BindingResult result) {

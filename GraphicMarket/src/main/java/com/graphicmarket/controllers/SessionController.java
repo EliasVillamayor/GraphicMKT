@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.graphicmarket.models.Kart;
 import com.graphicmarket.models.Seller;
 import com.graphicmarket.services.SessionService;
 
@@ -32,14 +33,17 @@ public class SessionController {
 						   BindingResult result,
 						   HttpSession session,
 						   Model model) {
+		
 		serv.register(newSeller, result);
+		
+		
 		
 		if(result.hasErrors()) {
 			return "index.jsp";
 		} else {
 			//Guardo al nuevo usuario en sesión
-			session.setAttribute("userInSession", newSeller);
-			return "redirect:/dashboard";
+			session.setAttribute("sellerInSession", newSeller);
+			return "redirect:/main";
 		}
 		
 	}
@@ -58,7 +62,7 @@ public class SessionController {
 			return "redirect:/";
 		} else {
 			session.setAttribute("userInSession", sellerTryingLogin); //Guardando en sesión el objeto de User
-			return "redirect:/dashboard";
+			return "redirect:/main";
 		}
 		
 	}

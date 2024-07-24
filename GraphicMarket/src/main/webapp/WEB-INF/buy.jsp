@@ -26,7 +26,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach items="${kartProducts}" var="product">
+			<c:forEach items="${kart.products}" var="product">
 				<tr>
 					<td>${product.name}</td>
 					<td>${product.price} <a class="btn btn-danger btn-sm" style="border-radius:50%;" href="/ruta/borrar/producto/carrito"></a></td>
@@ -37,7 +37,7 @@
 	</table>
 	<div class="row w-100 h-1 border-bottom border-gray-500 d-flex justify-content-between" >
 		<h2>Total:</h2>
-		<h3>${kartProducts.total}</h3>
+		<h3>${kart.total}</h3>
 	</div>
 	
 	
