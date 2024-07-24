@@ -54,6 +54,9 @@ public class ProductController {
 		return "product.jsp";
 	}
 	
+	
+	//CREAR PRODUCTO USA 4 CONTROLLERS
+	
 	@GetMapping("/product/new")
 	public String newProduct(HttpSession session,
 							 Model model) {
@@ -88,7 +91,9 @@ public class ProductController {
 		
 		//Guardar los datos en sesion
 		
+		//-------------------------------------------
 		//Primero guardamos la direccion de la imagen
+		//-------------------------------------------
 		String nombreArchivo = "";
 		try {	
 			nombreArchivo = imgServ.saveIMG(file, "/productIMG");
@@ -100,7 +105,9 @@ public class ProductController {
 		}
 		session.setAttribute("nombreArchivo", nombreArchivo);
 		
+		//-------------------------------------------
 		//despues las categorias
+		//-------------------------------------------
 		List<Category> categories = new ArrayList<>();
 
 	    for (Long categoryId : categoryIds) {
@@ -143,7 +150,7 @@ public class ProductController {
 								Model model){
 		
 		/* === REVISAMOS SESION === */
-		Seller userTemp = (Seller) session.getAttribute("userInSession"); //Obj User o null
+		Seller userTemp = (Seller) session.getAttribute("sellerInSession"); //Obj User o null
 		if(userTemp == null) {
 			return "redirect:/";
 		}
@@ -179,10 +186,14 @@ public class ProductController {
 		return "redirect:/profile";
 	}
 	
+	
+	
+	
 	@GetMapping("/product/{id}/edit")
-	public String editProduct(@PathVariable("id")Long id,
-			HttpSession session,
-			Model model) {
+	public String editProduct(@ModelAttribute("product")Product product,
+							@PathVariable("id")Long id,
+							HttpSession session,
+							Model model) {
 		
 		/* === REVISAMOS SESION === */
 		Seller userTemp = (Seller) session.getAttribute("userInSession"); //Obj User o null
@@ -196,6 +207,7 @@ public class ProductController {
 		
 		return "productEdit.jsp";
 	}
+	
 	
 	@PutMapping("/product/update")
 	public String updateProduct(@Valid @ModelAttribute("product")Product product,

@@ -1,5 +1,7 @@
 package com.graphicmarket.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +20,10 @@ public class ProductService {
 
 	public Product findProduct(Long productId) {
 		return pr.findById(productId).orElse(null);
+	}
+	
+	public List<Product> allProducts(){
+		return pr.findAll();
 	}
 	
 	

@@ -9,7 +9,7 @@
 </head>
 <body>
 	<form:form action="/product/create" method="post" modelAttribute="product">
-		<form:label path="price">precio:</form:label>
+		<form:label path="price">Precio:</form:label>
 		<form:input path="price" class="form-control" />
 		<form:errors path="price" class="text-danger"/>
 		
