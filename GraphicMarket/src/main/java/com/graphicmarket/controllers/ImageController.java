@@ -1,5 +1,8 @@
 package com.graphicmarket.controllers;
 
-public class ImageController {
+import org.springframework.stereotype.Controller;
 
+@Controller
+public class ImageController {
+	
 }

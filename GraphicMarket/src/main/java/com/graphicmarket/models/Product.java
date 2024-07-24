@@ -29,7 +29,7 @@ public class Product {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
-	@NotNull(message="Debe introducir una imagen del producto")
+	
 	private String productImage;
 	
 	@NotNull(message="Debe introducir un precio")
