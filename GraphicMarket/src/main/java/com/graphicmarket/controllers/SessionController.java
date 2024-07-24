@@ -1,8 +1,10 @@
+
 package com.graphicmarket.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -20,13 +22,17 @@ public class SessionController {
 	@Autowired
 	private SessionService serv;
 	
+	@GetMapping("/")
+	public String index(@ModelAttribute("newUser") Seller newSeller) {
+		return "loginRegister.jsp";
+	}
+	
 	@PostMapping("/register")
-	public String registerController(@Valid @ModelAttribute("newSeller") Seller newSeller,
+	public String register(@Valid @ModelAttribute("newUser") Seller newSeller,
 						   BindingResult result,
 						   HttpSession session,
 						   Model model) {
-		
-		 serv.register(newSeller, result);
+		serv.register(newSeller, result);
 		
 		if(result.hasErrors()) {
 			return "index.jsp";
@@ -56,4 +62,12 @@ public class SessionController {
 		}
 		
 	}
+	
+	@GetMapping("/logout")
+	public String logout(HttpSession session) {
+		session.removeAttribute("userInSession");
+		return "redirect:/";
+	}
+	
 }
+
