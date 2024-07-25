@@ -5,19 +5,22 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PutMapping;
 
 import com.graphicmarket.models.Product;
 import com.graphicmarket.models.Seller;
 import com.graphicmarket.services.SellerService;
 
 import jakarta.servlet.http.HttpSession;
+import jakarta.validation.Valid;
 
 @Controller
 public class SellerController {
 	@Autowired
-	SellerService sellServ;
+	private SellerService sellServ;
 	
 	@GetMapping("/seller")
 	public String seller(HttpSession session,
@@ -51,11 +54,31 @@ public class SellerController {
 		}
 		/* === REVISAMOS SESION === */
 		
-		model.addAttribute(sellerTemp);
+		model.addAttribute("seller",sellerTemp);
 		
 		return "profileEdit.jsp";
 		
 		
+	}
+	@PutMapping("/seller/update")
+	public String updateSeller(@Valid @ModelAttribute("seller")Seller seller,
+			HttpSession session,
+			BindingResult result,
+			Model model) {
+		
+		/* === REVISAMOS SESION === */
+		Seller sellerTemp = (Seller) session.getAttribute("sellerInSession"); //Obj User o null
+		if(sellerTemp == null) {
+			return "redirect:/";
+		}
+		/* === REVISAMOS SESION === */
+		
+		if (result.hasErrors()) {
+			return "profileEdit.jsp";
+		}else {
+			sellServ.saveSeller(seller);
+			return "profile.jsp";
+		}
 	}
 	
 }

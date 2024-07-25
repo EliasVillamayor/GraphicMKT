@@ -21,4 +21,7 @@ public class SellerService {
 		Seller seller = sellerRepo.findById(id).orElse(null);
 		return seller;
 	}
+	public void saveSeller(Seller seller) {
+		sellerRepo.save(seller);
+	}
 }
