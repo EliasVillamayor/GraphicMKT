@@ -59,9 +59,9 @@ public class SessionController {
 		if(sellerTryingLogin == null) {
 			//Tiene algo mal
 			redirectAttributes.addFlashAttribute("errorLogin", "Wrong email/password");
-			return "redirect:/";
+			return "loginRegister.jsp";
 		} else {
-			session.setAttribute("userInSession", sellerTryingLogin); //Guardando en sesión el objeto de User
+			session.setAttribute("sellerInSession", sellerTryingLogin); //Guardando en sesión el objeto de User
 			return "redirect:/main";
 		}
 		
@@ -69,7 +69,7 @@ public class SessionController {
 	
 	@GetMapping("/logout")
 	public String logout(HttpSession session) {
-		session.removeAttribute("userInSession");
+		session.removeAttribute("sellerInSession");
 		return "redirect:/";
 	}
 	

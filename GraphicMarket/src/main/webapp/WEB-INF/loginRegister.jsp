@@ -18,16 +18,16 @@
          <h2 class="pt-2 pb-3 " >Iniciar sesion</h2>
            <p class="text-danger">${errorLogin}</p>
              <form action="/login" method="POST">
-             <div class="row p-2">
-                 <div>
-                   <input type="email" class="form-control m-2  rounded-5  " placeholder="Email:"/>
-                 </div>
-                 <div>
-                     <input type="password" class="form-control m-2 rounded-5 " placeholder="Contrase�a:"/>
-                 </div>
-               </div>
-             <input type="submit" class="btn m-4 rounded-5 " style="background-color:#9c27b0"  value="Iniciar Sesion"/>
-           </form>
+             	<div class="row p-2">
+                 	<div>
+                   		<input type="email" name="email" class="form-control m-2  rounded-5  " placeholder="Email:"/>
+                 	</div>
+                 	<div>
+                    	 <input type="password" name="password" class="form-control m-2 rounded-5 " placeholder="Contrase�a:"/>
+                	 </div>
+               	</div>
+             	<input type="submit" class="btn m-4 rounded-5 " style="background-color:#9c27b0"  value="Iniciar Sesion"/>
+          	 </form>
         </div> 
           <div class="d-flex m-5" style="height: 550px;">
                <div class="vr"></div>
@@ -59,8 +59,9 @@
                <form:textarea path="aboutMe" class="form-control rounded-4" placeholder="Descripcion" id="floatingTextarea2" style="height: 80px; width:580px"></form:textarea>
                <form:label path="aboutMe" for="floatingTextarea2">Descripcion:</form:label>
              </div>
+             <input type ="submit" class="btn m-3 rounded-5" style="background-color:#9c27b0" value="Registrarse">
          </form:form>
-        <input type ="submit" class="btn m-3 rounded-5" style="background-color:#9c27b0" value="Registrarse">
+        
     </div> 
   </div>
 </body>

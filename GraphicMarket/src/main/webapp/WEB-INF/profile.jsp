@@ -25,9 +25,9 @@
                     </div>
                 </div>
                 <div class="col-md-8 vendedor-info">
-                    <h2 >${seller.name} ${seller.lastName}</h2>
-                    <p><strong>Email:</strong> ${seller.email}</p>
-                    <p><strong>Sobre mí:</strong> ${seller.aboutMe}</p>
+                    <h2 >${sellerInSession.name} ${sellerInSession.lastName}</h2>
+                    <p><strong>Email:</strong> ${sellerInSession.email}</p>
+                    <p><strong>Sobre mí:</strong> ${sellerInSession.aboutMe}</p>
                     <div class="d-flex flex-row-reverse">
                         <a type="button" class="btn btn-outline-dark m-5 rounded-5" href="/seller/edit">Editar Perfil</a>
                     </div>
@@ -38,7 +38,7 @@
         <div class="bg-light mx-5 rounded-4">
             <div class="container">
             	
-            	<c:forEach items="${seller.sellerProducts}" var="product">
+            	<c:forEach items="${sellerInSession.sellerProducts}" var="product">
             	    <div class="col">
                 	    <div class="bg-secondary py-5 m-2 text-white text-center rounded-5">
                 	    	<img src="${product.productImage}">
