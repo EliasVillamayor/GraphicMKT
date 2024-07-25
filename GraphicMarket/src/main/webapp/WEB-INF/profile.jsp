@@ -38,7 +38,7 @@
         <div class="bg-light mx-5 rounded-4">
             <div class="container">
             	
-            	<c:forEach items="${sellerInSession.sellerProducts}" var="product">
+            	<c:forEach items="${sellerProducts}" var="product">
             	    <div class="col">
                 	    <div class="bg-secondary py-5 m-2 text-white text-center rounded-5">
                 	    	<img src="${product.productImage}">

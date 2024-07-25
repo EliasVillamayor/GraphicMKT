@@ -16,4 +16,9 @@ public class SellerService {
 		seller.getSellerProducts().add(product);
 		sellerRepo.save(seller);
 	}
+	
+	public Seller findSeller(Long id) {
+		Seller seller = sellerRepo.findById(id).orElse(null);
+		return seller;
+	}
 }
