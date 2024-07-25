@@ -23,7 +23,7 @@
                    <input type="email" class="form-control m-2  rounded-5  " placeholder="Email:"/>
                  </div>
                  <div>
-                     <input type="password" class="form-control m-2 rounded-5 " placeholder="Contraseña:"/>
+                     <input type="password" class="form-control m-2 rounded-5 " placeholder="Contraseï¿½a:"/>
                  </div>
                </div>
              <input type="submit" class="btn m-4 rounded-5 " style="background-color:#9c27b0"  value="Iniciar Sesion"/>
@@ -36,8 +36,8 @@
          <h2 class="pt-2 pb-3 ">Registrarse</h2>
          <form:form action="/register" method="POST" modelAttribute="newUser">
              <div>
-                 <form:input path="firstName"  class="form-control  m-3 rounded-5 " placeholder="Nombre:"/>
-                 <form:errors path="firstName" class="text-danger"/>
+                 <form:input path="name"  class="form-control  m-3 rounded-5 " placeholder="Nombre:"/>
+                 <form:errors path="name" class="text-danger"/>
              </div>
              <div>
                   <form:input path="lastName"  class="form-control m-3 rounded-5 " placeholder="Apellido:" />
@@ -48,16 +48,16 @@
                 <form:errors path="email" class="text-danger"/>
              </div>
              <div>
-                <form:password path="password" class="form-control m-3 rounded-5 " placeholder="Contraseña:" />
+                <form:password path="password" class="form-control m-3 rounded-5 " placeholder="Contraseï¿½a:" />
                 <form:errors path="password" class="form-danger" />
              </div>
              <div>
-               <form:password path="confirm"  class="form-control m-3  rounded-5 " placeholder="Confirmar Contraseña:"/>
+               <form:password path="confirm"  class="form-control m-3  rounded-5 " placeholder="Confirmar Contraseï¿½a:"/>
                <form:errors path="confirm" class="form-danger"/>
              </div>
              <div class="form-floating m-3">
-               <textarea class="form-control rounded-4" placeholder="Descripcion" id="floatingTextarea2" style="height: 80px; width:580px"></textarea>
-               <label for="floatingTextarea2">Descripcion:</label>
+               <form:textarea path="aboutMe" class="form-control rounded-4" placeholder="Descripcion" id="floatingTextarea2" style="height: 80px; width:580px"></form:textarea>
+               <form:label path="aboutMe" for="floatingTextarea2">Descripcion:</form:label>
              </div>
          </form:form>
         <input type ="submit" class="btn m-3 rounded-5" style="background-color:#9c27b0" value="Registrarse">

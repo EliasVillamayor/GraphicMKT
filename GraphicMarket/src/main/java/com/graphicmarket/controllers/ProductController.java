@@ -21,6 +21,7 @@ import com.graphicmarket.models.Seller;
 import com.graphicmarket.services.CategoryService;
 import com.graphicmarket.services.ImageService;
 import com.graphicmarket.services.ProductService;
+import com.graphicmarket.services.SellerService;
 
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
@@ -36,6 +37,9 @@ public class ProductController {
 	@Autowired
 	CategoryService catServ;
 	
+	@Autowired
+	SellerService sellServ;
+	
 	@GetMapping("/product/{id}")
 	public String Product(@PathVariable("id")Long productId,
 			BindingResult result,
@@ -43,8 +47,8 @@ public class ProductController {
 			Model model) {
 		
 		/* === REVISAMOS SESION === */
-		Seller userTemp = (Seller) session.getAttribute("sellerInSession"); //Obj User o null
-		if(userTemp == null) {
+		Seller sellerTemp = (Seller) session.getAttribute("sellerInSession"); //Obj User o null
+		if (sellerTemp == null) {
 			return "redirect:/";
 		}
 		/* === REVISAMOS SESION === */
@@ -62,8 +66,8 @@ public class ProductController {
 							 Model model) {
 		
 		/* === REVISAMOS SESION === */
-		Seller userTemp = (Seller) session.getAttribute("sellerInSession"); //Obj User o null
-		if(userTemp == null) {
+		Seller sellerTemp = (Seller) session.getAttribute("sellerInSession"); //Obj User o null
+		if (sellerTemp == null) {
 			return "redirect:/";
 		}
 		/* === REVISAMOS SESION === */
@@ -83,8 +87,8 @@ public class ProductController {
 								HttpSession session) {
 		
 		/* === REVISAMOS SESION === */
-		Seller userTemp = (Seller) session.getAttribute("sellerInSession"); //Obj User o null
-		if(userTemp == null) {
+		Seller sellerTemp = (Seller) session.getAttribute("sellerInSession"); //Obj User o null
+		if (sellerTemp == null) {
 			return "redirect:/";
 		}
 		/* === REVISAMOS SESION === */
@@ -131,8 +135,8 @@ public class ProductController {
 									) {
 		
 		/* === REVISAMOS SESION === */
-		Seller userTemp = (Seller) session.getAttribute("sellerInSession"); //Obj User o null
-		if(userTemp == null) {
+		Seller sellerTemp = (Seller) session.getAttribute("sellerInSession"); //Obj User o null
+		if (sellerTemp == null) {
 			return "redirect:/";
 		}
 		/* === REVISAMOS SESION === */
@@ -150,8 +154,8 @@ public class ProductController {
 								Model model){
 		
 		/* === REVISAMOS SESION === */
-		Seller userTemp = (Seller) session.getAttribute("sellerInSession"); //Obj User o null
-		if(userTemp == null) {
+		Seller sellerTemp = (Seller) session.getAttribute("sellerInSession"); //Obj User o null
+		if (sellerTemp == null) {
 			return "redirect:/";
 		}
 		/* === REVISAMOS SESION === */
@@ -176,8 +180,13 @@ public class ProductController {
 		
 		
 		
+		
+		
 		//Guardamos el producto con los datos llenados	
 		prodServ.saveProduct(filledProduct);
+		
+		//Añadimos el producto a los productos de Autor
+		sellServ.addProduct(sellerTemp, filledProduct);
 		
 		//limpiamos la sesion
 		session.removeAttribute("nombreArchivo");
@@ -196,8 +205,8 @@ public class ProductController {
 							Model model) {
 		
 		/* === REVISAMOS SESION === */
-		Seller userTemp = (Seller) session.getAttribute("userInSession"); //Obj User o null
-		if(userTemp == null) {
+		Seller sellerTemp = (Seller) session.getAttribute("sellerInSession"); //Obj User o null
+		if (sellerTemp == null) {
 			return "redirect:/";
 		}
 		/* === REVISAMOS SESION === */
@@ -215,8 +224,8 @@ public class ProductController {
  			BindingResult result) {
 		
 		/* === REVISAMOS SESION === */
-		Seller userTemp = (Seller) session.getAttribute("userInSession"); //Obj User o null
-		if(userTemp == null) {
+		Seller sellerTemp = (Seller) session.getAttribute("sellerInSession"); //Obj User o null
+		if (sellerTemp == null) {
 			return "redirect:/main";
 		}
 		/* === REVISAMOS SESION === */

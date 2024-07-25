@@ -25,33 +25,27 @@
                     </div>
                 </div>
                 <div class="col-md-8 vendedor-info">
-                    <h2 >Nombre ${seller.name} y Apellido ${seller.lastName}</h2>
-                    <p><strong>Email:</strong> ${seller.email} Vendedor@gmail.com</p>
-                    <p><strong>Sobre mí:</strong> ${seller.aboutMe} Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil voluptate perferendis numquam officiis necessitatibus error? Inventore aspernatur fugiat dignissimos magnam? Amet quam doloremque quod illum sint at facilis impedit! Aperiam.</p>
+                    <h2 >${seller.name} ${seller.lastName}</h2>
+                    <p><strong>Email:</strong> ${seller.email}</p>
+                    <p><strong>Sobre mí:</strong> ${seller.aboutMe}</p>
                     <div class="d-flex flex-row-reverse">
-                        <a type="button" class="btn btn-outline-dark m-5 rounded-5" href="editarPerfil.jsp">Editar Perfil</a>
+                        <a type="button" class="btn btn-outline-dark m-5 rounded-5" href="/seller/edit">Editar Perfil</a>
                     </div>
                 </div>
             </div>
         </div>
         <h3 class="m-3 ml-4 text-center">Mis Productos</h3>
         <div class="bg-light mx-5 rounded-4">
-            <div class="row">
-                <div class="col">
-                    <div class="bg-secondary py-5 m-2 text-white text-center rounded-5">1</div>
-                </div>
-                <div class="col">
-                    <div class="bg-secondary py-5 m-2 text-white text-center rounded-5">2</div>
-                </div>
-                <div class="col">
-                    <div class="bg-secondary py-5 m-2 text-white text-center rounded-5">3</div>
-                </div>
-                <div class="col">
-                    <div class="bg-secondary py-5 m-2 text-white text-center rounded-5">4</div>
-                </div>
-                <div class="col">
-                    <div class="bg-secondary py-5 m-2 text-white text-center rounded-5">5</div>
-                </div>
+            <div class="container">
+            	
+            	<c:forEach items="${seller.sellerProducts}" var="product">
+            	    <div class="col">
+                	    <div class="bg-secondary py-5 m-2 text-white text-center rounded-5">
+                	    	<img src="${product.productImage}">
+                	    	<h3>${product.price}</h3>
+                	    </div>
+                	</div>
+               </c:forEach>
             </div>
         </div>
         <div class="d-flex flex-row-reverse">
