@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,41 +11,64 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </head>
+
 <body>
+
     <nav class="navbar navbar-light btn justify-content-center" style="background-color:#9c27b0">
         <a class="navbar-brand m-2 fs-1" href="#">GraphicMarket</a>
     </nav>
+
     <div class="p-3 mb-2 bg-secondary-subtle text-secondary-emphasis" style="width: 100%; height: 800px;">
+
         <div class="container mt-4">
+
             <div class="row">
+
                 <div class="col-md-4">
+
                         <div class="mb-3">
                             <label for="fotoPerfil" class="form-label">Foto de Perfil</label>
                             <input type="file" class="form-control" id="fotoPerfil" name="fotoPerfil">
-                    </div>
+                    	</div>
                 </div>
+
+               
                 <div class="col-md-8 vendedor-info">
-                   <div class="mb-3">
-                <label for="nombre" class="form-label">Nombre:</label>
-                <input type="text" class="form-control" id="nombre" name="nombre" value="${seller.name}">
-            </div>
-            <div class="mb-3">
-                <label for="apellido" class="form-label">Apellido:</label>
-                <input type="text" class="form-control" id="apellido" name="apellido" value="${seller.lastName}">
-            </div>
-                   <div class="mb-3">
-                <label for="email" class="form-label">Email:</label>
-                <input type="email" class="form-control" id="email" name="email" value="${seller.email}">
-            </div>
-                   <div class="mb-3">
-                <label for="aboutMe" class="form-label">Sobre mí:</label>
-                <textarea class="form-control" id="aboutMe" name="aboutMe">${seller.aboutMe}</textarea>
-            </div>
-                    <div class="d-flex flex-row-reverse">
-                        <a type="button" class="btn btn-outline-dark m-5" href="editarPerfil.jsp">Guardar cambios</a>
-                    </div>
-                </div>
-            </div>
+`					<form:form action="/seller/update" method="post" modelAttribute="seller" >
+				             <div class="mb-3">
+				             	<form:label path="name">Nombre:</form:label>
+								<form:input path="name" class="form-control" value="${seller.name}"/>
+								
+				             </div>
+	
+				            <div class="mb-3">
+				            	<form:label path="lastName">Apellido:</form:label>
+								<form:input path="lastName" class="form-control" value="${seller.lastName}"/>
+								
+				            </div>
+	
+				            <div class="mb-3">
+				            	<form:label path="email">Email:</form:label>
+								<form:input type="email" path="email" class="form-control" value="${seller.email}"/>
+								
+				            </div>
+	
+				            <div class="mb-3">
+				            	<form:label path="aboutMe">Sobre mí:</form:label>
+								<form:input path="aboutMe" class="form-control" value="${seller.aboutMe}"/>
+								
+				            </div>
+				            <div class="d-flex flex-row-reverse">
+				            	<form:hidden path="password" value="${seller.password}"/>
+				            	<form:hidden path="confirm" value="${seller.password}"/>
+				            	<form:hidden path="id" value="${seller.id}"/>
+				                 <input type="hidden" value="put" name="_method" >
+				                 <input type="submit" class="btn btn-outline-dark m-5" value="Guardar cambios" >
+				            </div>
+				            
+					     </form:form>
+              </div>  	
+           </div>
         </div>
     </div>
 </body>

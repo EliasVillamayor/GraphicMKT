@@ -53,8 +53,8 @@ public class SellerController {
 			return "redirect:/";
 		}
 		/* === REVISAMOS SESION === */
-		
-		model.addAttribute("seller",sellerTemp);
+		Seller myUser = sellServ.findSeller(sellerTemp.getId());
+		model.addAttribute("seller",myUser);
 		
 		return "profileEdit.jsp";
 		
@@ -65,20 +65,22 @@ public class SellerController {
 			HttpSession session,
 			BindingResult result,
 			Model model) {
+		System.out.println(seller.toString());
 		
 		/* === REVISAMOS SESION === */
-		Seller sellerTemp = (Seller) session.getAttribute("sellerInSession"); //Obj User o null
+		Seller sellerTemp = (Seller) session.getAttribute("sellerInSession");//Obj User o null
 		if(sellerTemp == null) {
 			return "redirect:/";
 		}
 		/* === REVISAMOS SESION === */
-		
-		if (result.hasErrors()) {
+		if(result.hasErrors()) {
 			return "profileEdit.jsp";
-		}else {
-			sellServ.saveSeller(seller);
-			return "profile.jsp";
 		}
+		else {
+			sellServ.saveSeller(seller);
+		}
+		
+		return "redirect:/main";
 	}
 	
 }

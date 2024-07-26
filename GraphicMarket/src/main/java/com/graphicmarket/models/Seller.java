@@ -50,7 +50,7 @@ public class Seller {
 	private String password;
 	
 	@Transient
-	@NotEmpty(message="Confirmation is required.")
+	//@NotEmpty(message="Confirmation is required.")
 	@Size(min=6, message="Confirmation needs at least 6 chars")
 	private String confirm;
 	
@@ -169,4 +169,12 @@ public class Seller {
 	protected void onUpdate() {
 		this.updatedAt = new Date();
 	}
+
+	@Override
+	public String toString() {
+		return "Seller [id=" + id + ", profilePicture=" + profilePicture + ", name=" + name + ", lastName=" + lastName
+				+ ", email=" + email + ", password=" + password + ", confirm=" + confirm + ", aboutMe=" + aboutMe
+				+ ", sellerProducts=" + sellerProducts + ", createdAt=" + createdAt + ", updatedAt=" + updatedAt + "]";
+	}
+	
 }

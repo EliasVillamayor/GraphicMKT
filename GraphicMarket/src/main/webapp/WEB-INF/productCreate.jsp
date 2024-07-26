@@ -21,7 +21,7 @@
 			
 		<label>Categorias:</label>
 		<select name="category">
-			<c:forEach items="${categories}" var="category" multiple>
+			<c:forEach items="${categories}" var="category" >
 				<option value="${category.id}">${category.name}</option>
 			</c:forEach>
 		</select>
