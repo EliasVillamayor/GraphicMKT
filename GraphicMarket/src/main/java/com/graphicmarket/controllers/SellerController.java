@@ -75,7 +75,7 @@ public class SellerController {
 			HttpSession session,
 			BindingResult result,
 			Model model) {
-		System.out.println(seller.toString());
+		
 		
 		/* === REVISAMOS SESION === */
 		Seller sellerTemp = (Seller) session.getAttribute("sellerInSession");//Obj User o null

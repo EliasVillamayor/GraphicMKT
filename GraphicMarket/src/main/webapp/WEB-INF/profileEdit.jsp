@@ -23,15 +23,7 @@
         <div class="container mt-4">
 
             <div class="row">
-
-                <div class="col-md-4">
-
-                        <div class="mb-3">
-                            <label for="fotoPerfil" class="form-label">Foto de Perfil</label>
-                            <input type="file" class="form-control" id="fotoPerfil" name="fotoPerfil">
-                    	</div>
-                </div>
-
+	
                
                 <div class="col-md-8 vendedor-info">
 `					<form:form action="/seller/update" method="post" modelAttribute="seller" >
@@ -62,6 +54,7 @@
 				            	<form:hidden path="password" value="${seller.password}"/>
 				            	<form:hidden path="confirm" value="${seller.password}"/>
 				            	<form:hidden path="id" value="${seller.id}"/>
+				            	<form:hidden path="profilePicture" value="${seller.profilePicture}"/>
 				                 <input type="hidden" value="put" name="_method" >
 				                 <input type="submit" class="btn btn-outline-dark m-5" value="Guardar cambios" >
 				            </div>

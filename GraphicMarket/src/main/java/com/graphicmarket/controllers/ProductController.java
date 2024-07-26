@@ -42,7 +42,6 @@ public class ProductController {
 	
 	@GetMapping("/product/{id}")
 	public String Product(@PathVariable("id")Long productId,
-			BindingResult result,
 			HttpSession session,
 			Model model) {
 		
@@ -203,8 +202,8 @@ public class ProductController {
 	
 	@PutMapping("/product/update")
 	public String updateProduct(@Valid @ModelAttribute("product")Product product,
-			HttpSession session,
- 			BindingResult result) {
+								HttpSession session,
+								BindingResult result) {
 		
 		/* === REVISAMOS SESION === */
 		Seller sellerTemp = (Seller) session.getAttribute("sellerInSession"); //Obj User o null
@@ -213,12 +212,14 @@ public class ProductController {
 		}
 		/* === REVISAMOS SESION === */
 		
+		
+		
 		if(result.hasErrors()) {
 			return "productEdit.jsp";
 		}else {
 			prodServ.saveProduct(product);
 		}
- 		return "redirect:/profile";
+ 		return "redirect:/seller";
 		
 	}
 	

@@ -61,8 +61,10 @@
   					
   					<form action="/agregarAlCarrito" method="post">
   						<input type="hidden" value="${product.id}" name="productID">
-  						<input type="submit" value="Agregar al carrito" class="btn">
+  						<input type="submit" value="Agregar al carrito" class="btn btn-danger">
   					</form>
+  					
+  					<a href="/product/${product.id}" class="btn btn-danger">Ver Producto</a>
   				</div>
   				
   			</div>

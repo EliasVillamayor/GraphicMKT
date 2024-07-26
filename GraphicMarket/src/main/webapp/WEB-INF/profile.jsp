@@ -44,6 +44,7 @@
                 	    <div class="bg-secondary py-5 m-2 text-white text-center rounded-5">
                 	    	<img src="../img/${product.productImage}">
                 	    	<h3>${product.price}</h3>
+                	    	<a href="/product/${product.id}/edit">Cambiar Precio</a>
                 	    </div>
                 	</div>
                </c:forEach>
