@@ -194,6 +194,7 @@ public class ProductController {
 		/* === REVISAMOS SESION === */
 		
 		Product productToEdit = prodServ.findProduct(id);
+		session.setAttribute("productOriginal", productToEdit);
 		model.addAttribute("product",productToEdit);
 		
 		return "productEdit.jsp";
@@ -212,6 +213,12 @@ public class ProductController {
 		}
 		/* === REVISAMOS SESION === */
 		
+		Product originalProduct = (Product) session.getAttribute("productOriginal");
+		Category productCategory = originalProduct.getCategory();
+		Seller productSeller = originalProduct.getSeller();
+		
+		product.setCategory(productCategory);
+		product.setSeller(productSeller);
 		
 		
 		if(result.hasErrors()) {

@@ -14,9 +14,9 @@
 <body>
     <nav class="navbar d-flex justify-content-around" style="background-color:#9c27b0; height:5rem;">
   			
-  			<div>
-  				<img alt="carritoLogo" src="#">
-    			<a class="navbar-brand" href="#"><h1>GraphicMarket</h1></a>
+  			<div class="row">
+  				<img alt="carritoLogo" src="../icons/carrito.png" style="height:50px; width:50px;">
+    			<a class="navbar-brand" href="/main"><h1>GraphicMarket</h1></a>
     		</div>
   				
     		<a class=""  href="#"><img alt="icono dado" src="#"></a>

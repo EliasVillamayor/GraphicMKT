@@ -14,7 +14,7 @@
 </head>
 <body>
     <nav class="navbar navbar-light btn justify-content-center" style="background-color:#9c27b0">
-        <a class="navbar-brand m-2 fs-1" href="#">GraphicMarket</a>
+        <a class="navbar-brand m-2 fs-1" href="/main">GraphicMarket</a>
     </nav>
     <div class="p-3 mb-2 bg-secondary-subtle text-secondary-emphasis" style="width: 100%; height: 800px;">
         <div class="container mt-4">
@@ -43,8 +43,9 @@
             	    <div class="col">
                 	    <div class="bg-secondary py-5 m-2 text-white text-center rounded-5">
                 	    	<img src="../img/${product.productImage}">
-                	    	<h3>${product.price}</h3>
-                	    	<a href="/product/${product.id}/edit">Cambiar Precio</a>
+                	    	<h3>Precio: ${product.price}</h3>
+                	    	<h3>Categoria: ${product.category.name}</h3>
+                	    	<a href="/product/${product.id}/edit" class="btn btn-danger">Cambiar Precio</a>
                 	    </div>
                 	</div>
                </c:forEach>

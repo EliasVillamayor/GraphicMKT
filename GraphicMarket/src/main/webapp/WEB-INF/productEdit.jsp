@@ -12,15 +12,54 @@
 </head>
 <body>
 
+<nav class="navbar d-flex justify-content-around" style="background-color:#9c27b0; height:5rem;">
+  			
+  			<div>
+  				<img alt="carritoLogo" src="#">
+    			<a class="navbar-brand" href="/main"><h1>GraphicMarket</h1></a>
+    		</div>
+  				
+    		<a class=""  href="#"><img alt="icono dado" src="#"></a>
+    		
+    		<c:if test="${sellerInSession == null}">
+    			<ul class=" d-flex justify-content-between">
+        			<li class="nav-item m-2" style="list-style:none;">
+         				<a class="nav-link active" aria-current="page" href="/">Iniciar Sesion</a>
+       				</li> 
+        			<li class="nav-item m-2" style="list-style:none;">
+          				<a class="nav-link active" aria-current="page" href="/">Registrarse</a>
+        			</li>    
+        		</ul>
+        	</c:if>
+        	<c:if test="${sellerInSession != null}">
+        		<a href="/seller">
+        			<img alt="perfil" src="">
+        		</a>
+        		
+        	</c:if>
+        	
+        	<a href="/finalizarCompra"><img alt="carrito" src=""></a>
+      		
+    		
+
+	</nav>
+
 	<h1>Cambiar precio!</h1>
 	
 	<form:form action="/product/update" method="post" modelAttribute="product">
 		<input type="hidden" name="_method" value="put">
+		
+		<form:hidden path="id" value="${product.id}"/>
+		<form:hidden path="productImage" value="${product.productImage}"/>
+		
 		<div>
 			<form:label path="price">Precio:</form:label>
 			<form:input path="price" class="form-control" value="${product.price}"/>
 			<form:errors path="price" class="text-danger"/>
 		</div>
+		
+	
+		
 		<input type="submit" class="btn btn-success mt-3" value="Edit">
 	</form:form>
 

@@ -16,7 +16,7 @@
   			
   			<div>
   				<img alt="carritoLogo" src="#">
-    			<a class="navbar-brand" href="#"><h1>GraphicMarket</h1></a>
+    			<a class="navbar-brand" href="/main"><h1>GraphicMarket</h1></a>
     		</div>
   				
     		<a class=""  href="#"><img alt="icono dado" src="#"></a>

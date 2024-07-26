@@ -15,7 +15,7 @@
 <body>
 
     <nav class="navbar navbar-light btn justify-content-center" style="background-color:#9c27b0">
-        <a class="navbar-brand m-2 fs-1" href="#">GraphicMarket</a>
+        <a class="navbar-brand m-2 fs-1" href="/main">GraphicMarket</a>
     </nav>
 
     <div class="p-3 mb-2 bg-secondary-subtle text-secondary-emphasis" style="width: 100%; height: 800px;">

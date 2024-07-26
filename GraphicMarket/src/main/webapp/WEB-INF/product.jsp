@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,7 +16,7 @@
 	<nav class="navbar d-flex justify-content-around" style="background-color:#9c27b0; height:5rem;">		
   			<div>
   				<img alt="carritoLogo" src="#">
-    			<a class="navbar-brand" href="#"><h1>GraphicMarket</h1></a>
+    			<a class="navbar-brand" href="/main"><h1>GraphicMarket</h1></a>
     		</div>
   				
     		<a class=""  href="#"><img alt="icono dado" src="#"></a>
