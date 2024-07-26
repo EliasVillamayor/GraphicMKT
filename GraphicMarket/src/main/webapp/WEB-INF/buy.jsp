@@ -28,7 +28,7 @@
 		<tbody>
 			<c:forEach items="${kart.products}" var="product">
 				<tr>
-					<td>${product.name}</td>
+					<td>${product.seller.name}</td>
 					<td>${product.price} <a class="btn btn-danger btn-sm" style="border-radius:50%;" href="/ruta/borrar/producto/carrito"></a></td>
 					
 				</tr>
@@ -39,6 +39,8 @@
 		<h2>Total:</h2>
 		<h3>${kart.total}</h3>
 	</div>
+	
+	<a href="/confirmarCompra" ></a>
 </main>
 
 

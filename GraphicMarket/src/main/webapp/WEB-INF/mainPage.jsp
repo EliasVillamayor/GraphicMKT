@@ -12,110 +12,62 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </head>
 <body>
-     <nav class="navbar navbar-expand-lg navbar-custom btn" style="background-color:#9c27b0">
-      <a class="navbar-brand" href="#">
-        <img src="path/to/icon.png" width="30" height="30" alt="">
-      </a>
-      <a class="navbar-brand m-1 fs-1 text-white " href="#">GraphicMarket</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-          <form class="form-inline mx-auto my-2 my-lg-0">
-              <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-          </form>
-          <ul class="navbar-nav ml-auto">
-              <li class="nav-item">
-                  <a class="nav-link text-white" href="#">Iniciar sesión</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link text-white" href="#">Registrarse</a>
-              </li>
-          </ul>
-      </div>
-  </nav>
-  <div class="container-fluid custom-row btn" style="background-color:#9c27b0" >
-      <div class="row">
-          <div class="col text-center">
-              <nav class="nav d-flex justify-content-around">
-                  <a class="nav-link text-white" href="#">Categorias</a>
-                  <a class="nav-link  text-white" href="#">Tendencias</a>
-                  <a class="nav-link  text-white" href="#">Ofertas</a>
-                  <div class="col-auto">
-                    <img src="path/to/icon.png" alt="Icon" class="custom-icon">
-                </div>
-              </nav>
-          </div>
-      </div>
-  </div>
-   <div class="p-3 mb-2 bg-secondary-subtle text-secondary-emphasis " style="width: 100%; height: 800px;"  >
-      <div>
-          <h1 class="text-black  text-center mb-0 p-4 fs-3 m-2 text-uppercase ">¡Los mas Elegidos!</h1>
-      </div>
-     <div id="carousel" class="carousel slide bg-light mx-5 mb-5 " data-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <div class="row">
-        <div class="col">
-          <div class="bg-secondary py-5 m-2 text-white text-center">1</div>
-        </div>
-        <div class="col">
-          <div class="bg-secondary py-5 m-2 text-white text-center">2</div>
-        </div>
-        <div class="col">
-          <div class="bg-secondary py-5 m-2 text-white text-center">3</div>
-        </div>
-        <div class="col">
-          <div class="bg-secondary py-5 m-2 text-white text-center">4</div>
-        </div>
-        <div class="col">
-          <div class="bg-secondary py-5 m-2 text-white text-center">5</div>
-        </div>
-      </div>
-    </div>
-    <div class="carousel-item">
-      <div class="row">
-        <div class="col">
-          <div class="bg-secondary py-5 m-2 text-white text-center">6</div>
-        </div>
-        <div class="col">
-          <div class="bg-secondary py-5 m-2 text-white text-center">7</div>
-        </div>
-        <div class="col">
-          <div class="bg-secondary py-5 m-2 text-white text-center">8</div>
-        </div>
-        <div class="col">
-          <div class="bg-secondary py-5 m-2 text-white text-center">9</div>
-        </div>
-        <div class="col">
-          <div class="bg-secondary py-5 m-2 text-white text-center">10</div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only"></span>
-  </a>
-  <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only"></span>
-  </a>
-  </div>
-  <main class="container bg-light rounded-5 " style="width: 80%; height: 450px;"  >
-   <h3 class="text-center p-3">¡El mas popular!</h3>
-      <div class="container text-center">
-  <div class="row justify-content-start">
-         <div class="col-4">
-             <img src="#"  class="object-fit-cover border rounded" alt="Imagen">
-         </div>
-         <div class="col-4">
-             <p class="fs-5 fw-semibold">Formato:</p>
-             <p class="fs-5 fw-semibold">Tamaño:</p>
-         </div> 
-      </div>
-    </div>   
-  </main>
-</div>
+    <nav class="navbar d-flex justify-content-around" style="background-color:#9c27b0; height:5rem;">
+  			
+  			<div>
+  				<img alt="carritoLogo" src="#">
+    			<a class="navbar-brand" href="#"><h1>GraphicMarket</h1></a>
+    		</div>
+  				
+    		<a class=""  href="#"><img alt="icono dado" src="#"></a>
+    		
+    		<c:if test="${sellerInSession == null}">
+    			<ul class=" d-flex justify-content-between">
+        			<li class="nav-item m-2" style="list-style:none;">
+         				<a class="nav-link active" aria-current="page" href="/">Iniciar Sesion</a>
+       				</li> 
+        			<li class="nav-item m-2" style="list-style:none;">
+          				<a class="nav-link active" aria-current="page" href="/">Registrarse</a>
+        			</li>    
+        		</ul>
+        	</c:if>
+        	<c:if test="${sellerInSession != null}">
+        		<a href="/seller">
+        			<img alt="perfil" src="">
+        		</a>
+        		
+        	</c:if>
+        	
+        	<a href="/finalizarCompra"><img alt="carrito" src=""></a>
+      		
+    		
+
+	</nav>
+	
+	<c:forEach items="${kart.products}" var="product">
+		<p>${product}</p>
+	</c:forEach>
+ 	 
+  	<div class="container-fluid m-5 bg-secondary-subtle">
+  		<c:forEach items="${todosProductos}" var="product">
+  			<div class="row border-bottom border-top border-black" style="height:400px;">
+  				<div class="col">
+  					<img class="p-5 img-fluid" src="/img/${product.productImage}" style="max-heigth:380px;">
+  				</div>
+  				<div class="col">
+  					<h2 class"p-3">Precio: ${product.price}</h2>
+  					<h2 class"p-3">Autor: ${product.seller.name}</h2>
+  					<h2 class"p-3">Categoria: ${product.category.name}</h2>
+  					
+  					<form action="/agregarAlCarrito" method="post">
+  						<input type="hidden" value="${product.id}" name="productID">
+  						<input type="submit" value="Agregar al carrito" class="btn">
+  					</form>
+  				</div>
+  				
+  			</div>
+  		</c:forEach>
+  	</div>
+   
 </body>
 </html>

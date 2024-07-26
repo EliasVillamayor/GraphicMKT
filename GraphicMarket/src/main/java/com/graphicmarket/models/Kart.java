@@ -1,8 +1,10 @@
 package com.graphicmarket.models;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Kart {
+	
 	private List<Product> products;
 	
 	private double total = getTotalPrice();
@@ -42,6 +44,8 @@ public class Kart {
 		
 		return temp;
 	}
+	
+	
 	
 	
 }
