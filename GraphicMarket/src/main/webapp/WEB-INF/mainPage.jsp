@@ -12,10 +12,42 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </head>
 <body>
-     <nav class="navbar navbar-light bg-light justify-content-center p-1 ">
-          <a class="navbar-brand m-1 fs-1  " href="#">
-          <img src="#" width="50" height="50" class="d-inline-block align-top m-2" alt="">GraphicMarket</a>
-      </nav>
+    <nav class="navbar navbar-expand-lg navbar-custom btn" style="background-color:#9c27b0">
+      <a class="navbar-brand" href="#">
+        <img src="path/to/icon.png" width="30" height="30" alt="">
+      </a>
+      <a class="navbar-brand m-1 fs-1 text-white " href="#">GraphicMarket</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+          <form class="form-inline mx-auto my-2 my-lg-0">
+              <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+          </form>
+          <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                  <a class="nav-link text-white" href="#">Iniciar sesión</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link text-white" href="#">Registrarse</a>
+              </li>
+          </ul>
+      </div>
+  </nav>
+  <div class="container-fluid custom-row btn" style="background-color:#9c27b0" >
+      <div class="row">
+          <div class="col text-center">
+              <nav class="nav d-flex justify-content-around">
+                  <a class="nav-link text-white" href="#">Categorias</a>
+                  <a class="nav-link  text-white" href="#">Tendencias</a>
+                  <a class="nav-link  text-white" href="#">Ofertas</a>
+                  <div class="col-auto">
+                    <img src="path/to/icon.png" alt="Icon" class="custom-icon">
+                </div>
+              </nav>
+          </div>
+      </div>
+  </div>
    <div class="p-3 mb-2 bg-secondary-subtle text-secondary-emphasis " style="width: 100%; height: 800px;"  >
       <div>
           <h1 class="text-black  text-center mb-0 p-4 fs-3 m-2 text-uppercase ">¡Los mas Elegidos!</h1>
