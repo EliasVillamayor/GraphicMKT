@@ -21,7 +21,8 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="text-center">
-                        <img src="" alt="Foto del vendedor" class="img-fluid">
+                        <img src="../img/${sellerInSession.profilePicture}" alt="Foto del vendedor" class="img-fluid">
+                        <a type="button" class="btn btn-outline-dark m-5 rounded-5" href="/changePFP">Cambiar foto de perfil!</a>
                     </div>
                 </div>
                 <div class="col-md-8 vendedor-info">
@@ -41,7 +42,7 @@
             	<c:forEach items="${sellerProducts}" var="product">
             	    <div class="col">
                 	    <div class="bg-secondary py-5 m-2 text-white text-center rounded-5">
-                	    	<img src="${product.productImage}">
+                	    	<img src="../img/${product.productImage}">
                 	    	<h3>${product.price}</h3>
                 	    </div>
                 	</div>

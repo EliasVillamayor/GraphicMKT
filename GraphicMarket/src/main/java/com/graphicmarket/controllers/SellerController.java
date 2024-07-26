@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 
 import com.graphicmarket.models.Product;
 import com.graphicmarket.models.Seller;
+import com.graphicmarket.services.ImageService;
 import com.graphicmarket.services.SellerService;
 
 import jakarta.servlet.http.HttpSession;
@@ -21,6 +22,11 @@ import jakarta.validation.Valid;
 public class SellerController {
 	@Autowired
 	private SellerService sellServ;
+	
+	
+	@Autowired
+	private ImageService imgServ;
+	
 	
 	@GetMapping("/seller")
 	public String seller(HttpSession session,
@@ -39,6 +45,9 @@ public class SellerController {
 		List<Product> sellerProducts =  sellServ.findSeller(sellerId).getSellerProducts();
 		model.addAttribute("sellerProducts",sellerProducts);
 		
+		//Actualizamos sesion para ver los cambios
+		Seller userTryingLogin =  sellServ.findSeller(sellerTemp.getId());
+		session.setAttribute("sellerInSession", userTryingLogin);
 		
 		return "profile.jsp";
 	}
