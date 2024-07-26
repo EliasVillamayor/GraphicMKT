@@ -12,7 +12,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-custom btn" style="background-color:#9c27b0">
+      <nav class="navbar navbar-expand-lg navbar-custom btn" style="background-color:#9c27b0">
       <a class="navbar-brand" href="#">
         <img src="path/to/icon.png" width="30" height="30" alt="">
       </a>
