@@ -12,7 +12,7 @@
 <div class="container">
 	<h1>Nuevo Producto!!!</h1>
 	
-	<form action="/product/new/fill" method="post" type="multipart/form-data">
+	<form action="/product/new/fill" method="post" enctype="multipart/form-data">
 		<label>Imagen:</label>
 		<input type="file" name="file" accept="image/*" required>
 		
