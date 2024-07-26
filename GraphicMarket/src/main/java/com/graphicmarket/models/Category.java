@@ -14,6 +14,8 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
 import jakarta.persistence.Table;
@@ -34,12 +36,7 @@ public class Category {
 	private String name;
 		
 
-	@ManyToMany(fetch=FetchType.LAZY)
-	@JoinTable(
-				name="product-has-categories",
-				joinColumns=@JoinColumn(name="category_id"),
-				inverseJoinColumns=@JoinColumn(name="product_id")	
-			)
+	@OneToMany(mappedBy="category",fetch=FetchType.LAZY)
 	private List<Product> products;
 		
 	@Column(updatable=false) 

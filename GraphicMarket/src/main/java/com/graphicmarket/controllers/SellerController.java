@@ -33,6 +33,7 @@ public class SellerController {
 		}
 		/* === REVISAMOS SESION === */
 		
+		//sellerTemp.getSellerProducts().size();
 		
 		Long sellerId = sellerTemp.getId();
 		List<Product> sellerProducts =  sellServ.findSeller(sellerId).getSellerProducts();

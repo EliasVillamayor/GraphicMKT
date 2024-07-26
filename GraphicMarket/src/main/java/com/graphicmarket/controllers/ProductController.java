@@ -81,9 +81,9 @@ public class ProductController {
 		return "productCreate.jsp";
 	}
 	
-	@PostMapping("/product/new/Fill")
+	@PostMapping("/product/new/fill")
 	public String newProductFill(@RequestParam("file") MultipartFile file,
-								@RequestParam("categories") Long[] categoryIds,
+								@RequestParam("category") Long categoryId,
 								HttpSession session) {
 		
 		/* === REVISAMOS SESION === */
@@ -110,17 +110,10 @@ public class ProductController {
 		session.setAttribute("nombreArchivo", nombreArchivo);
 		
 		//-------------------------------------------
-		//despues las categorias
+		//despues la categoria
 		//-------------------------------------------
-		List<Category> categories = new ArrayList<>();
-
-	    for (Long categoryId : categoryIds) {
-	        Category category = catServ.findCategory(categoryId);
-	        if (category != null) {
-	            categories.add(category);
-	        }
-	    }
-	    session.setAttribute("categories", categories);
+		Category category = catServ.findCategory(categoryId);
+	    session.setAttribute("category", category);
 
 		
 		
@@ -160,39 +153,29 @@ public class ProductController {
 		}
 		/* === REVISAMOS SESION === */
 		
-		
-		
-		
+
 		//Obtenemos las categorias
-		List<Category> categories = (List<Category>) session.getAttribute("categories");
+		Category category = (Category) session.getAttribute("category");
 		//Obtenemos la ruta de la imagen
 		String nombreArchivo = (String) session.getAttribute("nombreArchivo");
 		//Obtenemos el autor
 		Seller autor = (Seller) session.getAttribute("sellerInSession");
-		
-		
-		
+			
 		//llenamos el producto
 		Product filledProduct = product;
-		filledProduct.setCategories(categories);
+		filledProduct.setCategory(category);
 		filledProduct.setProductImage(nombreArchivo);
 		filledProduct.setSeller(autor);
-		
-		
-		
-		
-		
+			
 		//Guardamos el producto con los datos llenados	
 		prodServ.saveProduct(filledProduct);
 		
-		//Añadimos el producto a los productos de Autor
-		sellServ.addProduct(sellerTemp, filledProduct);
 		
 		//limpiamos la sesion
 		session.removeAttribute("nombreArchivo");
 		session.removeAttribute("categories");
 		
-		return "redirect:/profile";
+		return "redirect:/seller";
 	}
 	
 	

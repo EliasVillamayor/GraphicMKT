@@ -12,7 +12,7 @@
 <div class="container">
 	<h1>Nuevo Producto!!!</h1>
 	
-	<form action="/product/new/fill" method="post" type="multipart/form-data">
+	<form action="/product/new/fill" method="post" enctype="multipart/form-data">
 		<label>Imagen:</label>
 		<input type="file" name="file" accept="image/*" required>
 		
@@ -21,7 +21,7 @@
 			
 		<label>Categorias:</label>
 		<select name="category">
-			<c:forEach items="${categories}" var="category" multiple>
+			<c:forEach items="${categories}" var="category" >
 				<option value="${category.id}">${category.name}</option>
 			</c:forEach>
 		</select>
