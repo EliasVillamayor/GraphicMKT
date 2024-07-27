@@ -56,8 +56,8 @@
 		<tbody>
 			<c:forEach items="${kart.products}" var="product">
 				<tr>
-					
-					<td>${product.price} <a class="btn btn-danger btn-sm" style="border-radius:50%;" href="/ruta/borrar/producto/carrito"></a></td>
+					<img src="../img/${product.productImage}">
+					<td>${product.price} <a class="btn btn-danger btn-sm" style="border-radius:50%;" href="/kart/delete/${product.id}">x</a></td>
 					
 				</tr>
 			</c:forEach>
@@ -68,7 +68,7 @@
 		<h3>${kart.total}</h3>
 	</div>
 	
-	<a href="/confirmarCompra" ></a>
+	<a href="/confirmarCompra" class="btn" >Confirmar Compra</a>
 </main>
 
 

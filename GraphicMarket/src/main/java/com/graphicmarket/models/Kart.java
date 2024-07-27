@@ -50,6 +50,10 @@ public class Kart {
 		this.products.add(product);
 	}
 	
+	public void removeProduct(Long id) {
+		this.products.removeIf(producto -> producto.getId() == id);
+	}
+	
 	
 	
 	

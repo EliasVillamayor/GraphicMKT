@@ -1,12 +1,12 @@
 package com.graphicmarket.controllers;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -59,19 +59,22 @@ public class BaseController {
 		}
 		/* === REVISAMOS SESION === */
 		
-		//PASAR LOS SELLERS POR MODEL, SI LOS OBTENGO DE KART.PRODUCT.SELLER.NAME NO CARGAN
+		
 		
 		Kart kart = (Kart) session.getAttribute("kart");
-		
+			
 		model.addAttribute("kart", kart);
 		
 		return "buy.jsp";
 	}
 	
-	@PostMapping("/confirmarCompra")
+	@GetMapping("/confirmarCompra")
 	public String confirmarCompra(HttpSession session) {
 		
 		//vaciar carrito en sesion
+		Kart kart = new Kart();
+		
+		session.setAttribute("kart", kart);
 		
 		
 		return "redirect:/main";
@@ -90,12 +93,8 @@ public class BaseController {
 		//Encuentro al producto que tengo que agregar
 		Product foundProduct = prodServ.findProduct(productId);
 		
-		//Inicializo una lista vacia
-		//List<Product> productsEmpty = new ArrayList<>();
+	
 		
-		//if(kart.getProducts()==null) {
-			//kart.setProducts(productsEmpty);
-		//}
 		
 		kart.addProduct(foundProduct);
 		System.out.println(kart.getProducts().get(0));
@@ -103,6 +102,26 @@ public class BaseController {
 		session.setAttribute("kart", kart);
 		
 		return "redirect:/main";
+	}
+	
+	@GetMapping("/kart/delete/{id}")
+	public String quitarDelCarrito(@PathVariable("id")Long productoId,
+									HttpSession session,
+									Model model) {
+		
+		//Agrego al carro de sesion
+		Kart kart = (Kart) session.getAttribute("kart");
+		
+		//lo agrego al modelo para enviarlo al jsp
+		model.addAttribute("kart", kart);
+		
+		kart.removeProduct(productoId);
+		session.setAttribute("kart", kart);
+		
+		return "redirect:/finalizarCompra";
+		
+		
+		
 	}
 	
 }
