@@ -39,7 +39,7 @@ public class SessionController {
 		
 		
 		if(result.hasErrors()) {
-			return "index.jsp";
+			return "loginRegister.jsp";
 		} else {
 			//Guardo al nuevo usuario en sesión
 			session.setAttribute("sellerInSession", newSeller);

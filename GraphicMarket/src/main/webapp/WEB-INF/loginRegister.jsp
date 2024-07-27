@@ -26,7 +26,7 @@
                     	 <input type="password" name="password" class="form-control m-2 rounded-5 " placeholder="Contrase�a:"/>
                 	 </div>
                	</div>
-             	<input type="submit" class="btn m-4 rounded-5 " style="background-color:#9c27b0"  value="Iniciar Sesion"/>
+             	<input type="submit" class="btn m-4 rounded-5 " style="background-color:#9c27b0;"  value="Iniciar Sesion"/>
           	 </form>
         </div> 
           <div class="d-flex m-5" style="height: 550px;">

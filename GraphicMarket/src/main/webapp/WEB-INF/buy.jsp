@@ -12,7 +12,7 @@
 </head>
 <body>
 <nav class="navbar d-flex justify-content-around" style="background-color:#9c27b0; height:5rem;">
-  			
+  		<!-- 
   			<div>
   				<img alt="carritoLogo" src="#">
     			<a class="navbar-brand" href="/main"><h1>GraphicMarket</h1></a>
@@ -20,7 +20,7 @@
   				
     		<a class=""  href="#"><img alt="icono dado" src="#"></a>
     		
-    		<c:if test="${sellerInSession == null}">
+    		<c:if test="">
     			<ul class=" d-flex justify-content-between">
         			<li class="nav-item m-2" style="list-style:none;">
          				<a class="nav-link active" aria-current="page" href="/">Iniciar Sesion</a>
@@ -30,7 +30,7 @@
         			</li>    
         		</ul>
         	</c:if>
-        	<c:if test="${sellerInSession != null}">
+        	<c:if test="">
         		<a href="/seller">
         			<img alt="perfil" src="">
         		</a>
@@ -39,7 +39,7 @@
         	
         	<a href="/finalizarCompra"><img alt="carrito" src=""></a>
       		
-    		
+    	 -->
 
 	</nav>
 
@@ -56,7 +56,7 @@
 		<tbody>
 			<c:forEach items="${kart.products}" var="product">
 				<tr>
-					<td>${product.seller.name}</td>
+					
 					<td>${product.price} <a class="btn btn-danger btn-sm" style="border-radius:50%;" href="/ruta/borrar/producto/carrito"></a></td>
 					
 				</tr>

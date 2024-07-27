@@ -37,21 +37,43 @@ public class BaseController {
 		List<Product> todosProductos = prodServ.allProducts();
 		model.addAttribute("todosProductos", todosProductos);
 		
-		Kart kart = new Kart();
+		Kart kart = (Kart) session.getAttribute("kart");
+		
+		if(kart == null) {
+			 kart = new Kart();
+		}
+		
 		session.setAttribute("kart", kart);
-		
-		
-		
+			
 		return "mainPage.jsp";
 	}
 	
 	@GetMapping("/finalizarCompra")
-	public String confirmarCompra() {
+	public String finalizarCompra(HttpSession session,
+									Model model) {
+		
+		/* === REVISAMOS SESION === */
+		Seller sellerTemp = (Seller) session.getAttribute("sellerInSession"); //Obj User o null
+		if(sellerTemp == null) {
+			return "redirect:/";
+		}
+		/* === REVISAMOS SESION === */
+		
+		//PASAR LOS SELLERS POR MODEL, SI LOS OBTENGO DE KART.PRODUCT.SELLER.NAME NO CARGAN
+		
+		Kart kart = (Kart) session.getAttribute("kart");
+		
+		model.addAttribute("kart", kart);
+		
 		return "buy.jsp";
 	}
 	
 	@PostMapping("/confirmarCompra")
-	public String finalizarCompra(HttpSession session) {
+	public String confirmarCompra(HttpSession session) {
+		
+		//vaciar carrito en sesion
+		
+		
 		return "redirect:/main";
 	}
 	
@@ -59,17 +81,25 @@ public class BaseController {
 	public String agregarAlCarrito(@RequestParam("productID")Long productId,
 									HttpSession session) {
 		
+		
+		
+		
+		//Agrego al carro de sesion
 		Kart kart = (Kart) session.getAttribute("kart");
 		
+		//Encuentro al producto que tengo que agregar
 		Product foundProduct = prodServ.findProduct(productId);
 		
-		List<Product> productsEmpty = new ArrayList<>();
+		//Inicializo una lista vacia
+		//List<Product> productsEmpty = new ArrayList<>();
 		
-		if(kart.getProducts()==null) {
-			kart.setProducts(productsEmpty);
-		}
+		//if(kart.getProducts()==null) {
+			//kart.setProducts(productsEmpty);
+		//}
 		
-		kart.getProducts().add(foundProduct);
+		kart.addProduct(foundProduct);
+		System.out.println(kart.getProducts().get(0));
+		
 		session.setAttribute("kart", kart);
 		
 		return "redirect:/main";

@@ -118,6 +118,12 @@ public class Product {
 	protected void onUpdate() {
 		this.updatedAt = new Date();
 	}
+
+	@Override
+	public String toString() {
+		return "Product [id=" + id + ", productImage=" + productImage + ", price=" + price + " createdAt=" + createdAt + ", updatedAt=" + updatedAt + "]";
+	}
+	
 	
 	
 }

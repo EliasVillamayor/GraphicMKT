@@ -12,6 +12,7 @@ public class Kart {
 	
 
 	public Kart() {
+		this.products = new ArrayList<Product>();
 		
 	}
 
@@ -43,6 +44,10 @@ public class Kart {
 	    }
 		
 		return temp;
+	}
+	
+	public void addProduct(Product product) {
+		this.products.add(product);
 	}
 	
 	
