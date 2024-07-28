@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,64 +13,71 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <nav class="navbar d-flex justify-content-around" style="background-color:#9c27b0; height:5rem;">
-  			
-  			<div class="row">
-  				<img alt="carritoLogo" src="../icons/carrito.png" style="height:50px; width:50px;">
-    			<a class="navbar-brand" href="/main"><h1>GraphicMarket</h1></a>
-    		</div>
-  				
-    		<a class=""  href="#"><img alt="icono dado" src="#"></a>
-    		
-    		<c:if test="${sellerInSession == null}">
-    			<ul class=" d-flex justify-content-between">
-        			<li class="nav-item m-2" style="list-style:none;">
-         				<a class="nav-link active" aria-current="page" href="/">Iniciar Sesion</a>
-       				</li> 
-        			<li class="nav-item m-2" style="list-style:none;">
-          				<a class="nav-link active" aria-current="page" href="/">Registrarse</a>
-        			</li>    
-        		</ul>
-        	</c:if>
-        	<c:if test="${sellerInSession != null}">
-        		<a href="/seller">
-        			<img alt="perfil" src="">
-        		</a>
-        		
-        	</c:if>
-        	
-        	<a href="/finalizarCompra"><img alt="carrito" src=""></a>
-      		
-    		
-
-	</nav>
-	
-	<c:forEach items="${kart.products}" var="product">
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #9c27b0;">
+    <div class="container-fluid d-flex flex-column">
+    
+        <!-- Nombre, barra de búsqueda, sesión y registro -->
+        <div class="d-flex flex-lg-row d-flex justify-content-around align-items-center">
+            <!-- Logo y Título -->
+            <a class="navbar-brand d-flex align-items-center" href="/main">
+                <img alt="carritoLogo" src="../icons/carrito.png" class="d-inline-block align-text-top m-2" style="height: 2rem;">
+                <span class="fs-2 ms-2 display-1 m-2">GraphicMarket</span>
+            </a>
+            
+            <!-- Sesión y registro -->
+            <c:if test="${sellerInSession == null}">
+                <ul class="navbar-nav d-flex flex-row">
+                    <li class="nav-item mx-3">
+                        <a class="nav-link text-light" href="/">Iniciar Sesión</a>
+                    </li>
+                    <li class="nav-item mx-3">
+                        <a class="nav-link text-light" href="/">Registrarse</a>
+                    </li>
+                </ul>
+            </c:if>
+        </div>
+        
+        <!-- Iconos en fila centrados -->
+        <div class="d-flex justify-content-between mx-5">
+            <a class="text-light mx-5 fs-5 text-decoration-none display-3" href="#"><img alt="icono dado" src="#" style="height: 2rem;"></a>
+            <c:if test="${sellerInSession != null}">
+                <a class="text-light mx-5 fs-5  text-decoration-none display-3" href="/seller">Perfil </a>
+            </c:if>
+            <a class="text-light mx-5 fs-5  text-decoration-none  display-3" href="/finalizarCompra">Carrito </a>
+        </div>
+    </div>
+</nav>
+ <div class=" container-fluid p-3 mb-2 bg-secondary-subtle text-secondary-emphasis" style="width: 100%;">
+    <c:forEach items="${kart.products}" var="product">
 		<p>${product}</p>
 	</c:forEach>
  	 
-  	<div class="container-fluid m-5 bg-secondary-subtle">
-  		<c:forEach items="${todosProductos}" var="product">
-  			<div class="row border-bottom border-top border-black" style="height:400px;">
-  				<div class="col">
-  					<img class="p-5 img-fluid" src="/img/${product.productImage}" style="max-heigth:380px;">
-  				</div>
-  				<div class="col">
-  					<h2 class"p-3">Precio: ${product.price}</h2>
-  					<h2 class"p-3">Autor: ${product.seller.name}</h2>
-  					<h2 class"p-3">Categoria: ${product.category.name}</h2>
+ 
+  	<div class="row text-center" >
+  	<p class="fs-1  font-monospace">Productos</p>
+  	  <c:forEach items="${todosProductos}" var="product">
+  				<div class="col-md-2 mb-3">
+  				
+  				 <div class="card" style="width: 18rem;">
+  					<img  class="card-img-top" src="/img/${product.productImage}">
+  				<div class="card-body">
+  					<p class="card-title m-1 fs-4 ">Precio: ${product.price}</p>
+  					<p class="card-text m-1 fs-4 ">Autor: ${product.seller.name}</p>
+  					<p class="card-text m-1 fs-4 ">Categoria: ${product.category.name}</p>
   					
   					<form action="/agregarAlCarrito" method="post">
   						<input type="hidden" value="${product.id}" name="productID">
-  						<input type="submit" value="Agregar al carrito" class="btn btn-danger">
+  						<input type="submit" value="Agregar al carrito" class="btn m-1"   style="background-color: #9c27b0;">
   					</form>
   					
-  					<a href="/product/${product.id}" class="btn btn-danger">Ver Producto</a>
+  					<a href="/product/${product.id}" class="btn m-1"   style="background-color: #9c27b0;">Ver Producto</a>
   				</div>
-  				
   			</div>
+  		</div>
   		</c:forEach>
   	</div>
-   
+  	
+  </div>
+
 </body>
 </html>

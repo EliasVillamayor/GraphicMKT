@@ -47,13 +47,13 @@
         </div>
     </div>
 </nav>
-    <div class="p-3 mb-2 bg-secondary-subtle text-secondary-emphasis" style="width: 100%; height: 800px;">
+    <div class=" container-fluid p-3 mb-2 bg-secondary-subtle text-secondary-emphasis" style="width: 100%;">
         <div class="container mt-4">
             <div class="row">
                 <div class="col-md-4">
                     <div class="text-center">
                         <img src="../img/${sellerInSession.profilePicture}" alt="Foto del vendedor" class="img-fluid">
-                        <a type="button" class="btn btn-outline-dark m-5 rounded-5" href="/changePFP">Cambiar foto de perfil!</a>
+                        <a type="button" class="btn btn-outline-dark m-5 rounded-5" href="/changePFP">Cambiar foto de perfil</a>
                     </div>
                 </div>
                 <div class="col-md-8 vendedor-info">
@@ -66,22 +66,23 @@
                 </div>
             </div>
         </div>
-        <h3 class="m-3 ml-4 text-center">Mis Productos</h3>
-        <div class="bg-light mx-5 rounded-4">
-            <div class="container">
-            	
-            	<c:forEach items="${sellerProducts}" var="product">
-            	    <div class="col">
-                	    <div class="bg-secondary py-5 m-2 text-white text-center rounded-5">
-                	    	<img src="../img/${product.productImage}">
-                	    	<h3>Precio: ${product.price}</h3>
-                	    	<h3>Categoria: ${product.category.name}</h3>
-                	    	<a href="/product/${product.id}/edit" class="btn btn-danger">Cambiar Precio</a>
+        
+        	<div class="row text-center m-3" >
+        <p class="fs-1  font-monospace ">Mis Productos</p>
+            	<c:forEach items="${sellerProducts}" var="product">            	
+            	    <div class="col-md-2 mb-3">
+            	    
+            	     <div class="card" style="width: 18rem;">
+                	    	<img  class="card-img-top"  src="../img/${product.productImage}">
+                	    	<div class="card-body">
+                	    	<p class="card-title m-2 fs-4">Precio: ${product.price}</p>
+                	    	<p  class="card-title m-2 fs-4">Categoria: ${product.category.name}</p>
+                	    	<a href="/product/${product.id}/edit" class="btn m-1" style="background-color: #9c27b0;">Cambiar Precio</a>
                 	    </div>
                 	</div>
+                </div>
                </c:forEach>
             </div>
-        </div>
         <div class="d-flex flex-row-reverse">
             <a type="button" class="btn btn-outline-dark m-5 rounded-5 " href="/product/new">Crear nuevo producto</a>
         </div>
