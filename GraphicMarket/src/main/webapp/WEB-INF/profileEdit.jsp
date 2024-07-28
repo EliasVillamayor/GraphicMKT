@@ -40,7 +40,7 @@
         
         <!-- Iconos en fila centrados -->
         <div class="d-flex justify-content-between mx-5">
-            <a class="text-light mx-5 fs-5 text-decoration-none display-3" href="#"><img alt="icono dado" src="#" style="height: 2rem;"></a>
+            <a class="text-light mx-5 fs-5 text-decoration-none display-3" href="#"><img alt="icono dado" src="../icons/dado.png" style="height: 2rem;"></a>
             <c:if test="${sellerInSession != null}">
                 <a class="text-light mx-5 fs-5  text-decoration-none display-3" href="/seller">Perfil </a>
             </c:if>
