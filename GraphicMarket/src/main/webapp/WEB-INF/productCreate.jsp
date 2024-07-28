@@ -15,7 +15,6 @@
    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #9c27b0;">
     <div class="container-fluid d-flex flex-column">
     
-        <!-- Nombre, barra de b�squeda, sesi�n y registro -->
         <div class="d-flex flex-lg-row d-flex justify-content-around align-items-center">
             <!-- Logo y T�tulo -->
             <a class="navbar-brand d-flex align-items-center" href="/main">
