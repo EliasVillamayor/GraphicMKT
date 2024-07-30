@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Editar Producto</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
@@ -76,7 +76,7 @@
       <div class="row">
        <img alt="Logo" src="../icons/logo3.png" class="d-inline-block align-text-top col-md-2" style="height: 10rem;">
         <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4 text-light">
-        <h6 class="text-uppercase fw-bold mb-4"><i class="fas fa-gem me-3"></i>Pagina</h6>
+        <h6 class="text-uppercase fw-bold mb-4"><i class="fas fa-gem me-3"></i>sPagina</h6>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p>
         </div>
         <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4 text-light">

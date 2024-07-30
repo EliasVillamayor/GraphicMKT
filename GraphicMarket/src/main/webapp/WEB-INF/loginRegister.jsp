@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title></title>
+<title>Inicio de sesion / Registrarse</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
@@ -58,7 +58,7 @@
              </div>
              <div class="form-floating m-3">
                <form:textarea path="aboutMe" class="form-control rounded-4" placeholder="Descripcion" id="floatingTextarea2" style="height: 80px; width:580px"></form:textarea>
-               <form:label path="aboutMe" for="floatingTextarea2">Descripcion:</form:label>
+               <form:label path="aboutMe" for="floatingTextarea2">sDescripcion:</form:label>
              </div>
              <input type ="submit" class="btn m-3 rounded-5" style="background-color:#9c27b0" value="Registrarse">
          </form:form>

@@ -91,7 +91,7 @@
       <div class="row">
        <img alt="Logo" src="../icons/logo3.png" class="d-inline-block align-text-top col-md-2" style="height: 10rem;">
         <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4 text-light">
-        <h6 class="text-uppercase fw-bold mb-4"><i class="fas fa-gem me-3"></i>Pagina</h6>
+        <h6 class="text-uppercase fw-bold mb-4"><i class="fas fa-gem me-3"></i>sPagina</h6>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p>
         </div>
         <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4 text-light">
@@ -103,7 +103,7 @@
         <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4 text-light">
           <h6 class="text-uppercase fw-bold mb-4">Links</h6>
           <p><a href="#!" class="text-reset text-decoration-none">Precios</a></p>
-          <p><a href="#!" class="text-reset text-decoration-none"> </a></p>
+          <p><a href="#!" class="text-reset text-decoration-none"> Redes</a></p>
           <p><a href="#!" class="text-reset text-decoration-none"></a></p>
           <p><a href="#!" class="text-reset text-decoration-none">Ayuda</a></p>
         </div>
