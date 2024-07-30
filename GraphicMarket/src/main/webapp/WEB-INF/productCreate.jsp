@@ -13,38 +13,36 @@
 </head>
 <body>
    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #9c27b0;">
-    <div class="container-fluid d-flex flex-column">
-    
-        <div class="d-flex flex-lg-row d-flex justify-content-around align-items-center">
-            <!-- Logo y T�tulo -->
-            <a class="navbar-brand d-flex align-items-center" href="/main">
-                <img alt="carritoLogo" src="../icons/carrito.png" class="d-inline-block align-text-top m-2" style="height: 2rem;">
-                <span class="fs-2 ms-2 display-1 m-2">GraphicMarket</span>
-            </a>
-            
-            <!-- Sesi�n y registro -->
-            <c:if test="${sellerInSession == null}">
-                <ul class="navbar-nav d-flex flex-row">
-                    <li class="nav-item mx-3">
-                        <a class="nav-link text-light" href="/">Iniciar Sesi�n</a>
-                    </li>
-                    <li class="nav-item mx-3">
-                        <a class="nav-link text-light" href="/">Registrarse</a>
-                    </li>
-                </ul>
-            </c:if>
-        </div>
-        
-        <!-- Iconos en fila centrados -->
+  	  <div class="container-fluid d-flex flex-column">
+  			
+  			 <div class="d-flex flex-lg-row d-flex justify-content-around align-items-center">
+  				 <a class="navbar-brand d-flex align-items-center" href="/main">
+                <img alt="carritoLogo" src="../icons/logo3.png" class="d-inline-block align-text-top m-2" style="height: 5rem;">
+                <span class="fs-2 ms-2 display-1 m-2">GraphicMarket</span></a>
+    		</div>
+  				
+    		
+    		<c:if test="${sellerInSession == null}">
+    			<ul class=" d-flex justify-content-between">
+        			<li class="nav-item m-2" style="list-style:none;">
+         				<a class="nav-link active" aria-current="page" href="/">Iniciar Sesion</a>
+       				</li> 
+        			<li class="nav-item m-2" style="list-style:none;">
+          				<a class="nav-link active" aria-current="page" href="/">Registrarse</a>
+        			</li>    
+        		</ul>
+        	</c:if>
+        	  <!-- Iconos en fila centrados -->
         <div class="d-flex justify-content-between mx-5">
             <a class="text-light mx-5 fs-5 text-decoration-none display-3" href="#"><img alt="icono dado" src="../icons/dado.png" style="height: 2rem;"></a>
-            <c:if test="${sellerInSession != null}">
-                <a class="text-light mx-5 fs-5  text-decoration-none display-3" href="/seller">Perfil </a>
-            </c:if>
-            <a class="text-light mx-5 fs-5  text-decoration-none  display-3" href="/finalizarCompra">Carrito </a>
+        	<c:if test="${sellerInSession != null}">
+        		 <a class="text-light mx-5 fs-5  text-decoration-none display-3" href="/seller">Perfil </a>
+        	</c:if>
+        	  <a class="text-light mx-5 fs-5  text-decoration-none  display-3" href="/finalizarCompra">Carrito </a>
         </div>
-    </div>
-</nav>
+
+      </div>
+	</nav>
  <div  class="p-3 bg-secondary-subtle text-secondary-emphasis" style="width: 100%; height: 850px;">
             <p class="mb-4 fs-2 text-center">Nuevo Producto</p>
             
@@ -78,6 +76,7 @@
   <section >
     <div class="container text-center text-md-start mt-5">
       <div class="row">
+       <img alt="Logo" src="../icons/logo3.png" class="d-inline-block align-text-top col-md-2" style="height: 10rem;">
         <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4 text-light">
         <h6 class="text-uppercase fw-bold mb-4"><i class="fas fa-gem me-3"></i>Pagina</h6>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p>
@@ -105,7 +104,7 @@
       </div>
    </div>
   </section>
-  <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">� 2024 GraphicMarket<a class="text-reset fw-bold" href="https://mdbootstrap.com/">Coding Dojo</a>
+  <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">© 2024 GraphicMarket<a class="text-reset fw-bold" href="https://mdbootstrap.com/">Coding Dojo</a>
   </div>
 </footer>
 </body>

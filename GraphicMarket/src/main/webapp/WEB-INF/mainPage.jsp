@@ -20,8 +20,8 @@
         <div class="d-flex flex-lg-row d-flex justify-content-around align-items-center">
             <!-- Logo y Título -->
             <a class="navbar-brand d-flex align-items-center" href="/main">
-                <img alt="carritoLogo" src="../icons/carrito.png" class="d-inline-block align-text-top m-2" style="height: 2rem;">
-                <span class="fs-2 ms-2 display-1 m-2">GraphicMarket</span>
+                <img alt="carritoLogo" src="../icons/logo3.png" class="d-inline-block align-text-top" style="height: 5rem;">
+                <span class="fs-2 ms-2 display-1">GraphicMarket</span>
             </a>
             
             <!-- Sesión y registro -->
@@ -77,12 +77,12 @@
   		</c:forEach>
   	</div>
   	
-  </div>
-                   <!-- footer -->
+  </div><!-- footer -->
 <footer class=" container-fluid text-center text-lg-start btn text-muted" style="background-color: #9c27b0;">
   <section >
     <div class="container text-center text-md-start mt-5">
       <div class="row">
+       <img alt="Logo" src="../icons/logo3.png" class="d-inline-block align-text-top col-md-2" style="height: 10rem;">
         <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4 text-light">
         <h6 class="text-uppercase fw-bold mb-4"><i class="fas fa-gem me-3"></i>Pagina</h6>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p>

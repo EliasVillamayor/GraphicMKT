@@ -19,7 +19,7 @@
         <div class="d-flex flex-lg-row d-flex justify-content-around align-items-center">
             <!-- Logo y Título -->
             <a class="navbar-brand d-flex align-items-center" href="/main">
-                <img alt="carritoLogo" src="../icons/carrito.png" class="d-inline-block align-text-top m-2" style="height: 2rem;">
+                <img alt="carritoLogo" src="../icons/logo3.png" class="d-inline-block align-text-top m-2" style="height: 5rem;">
                 <span class="fs-2 ms-2 display-1 m-2">GraphicMarket</span>
             </a>
             
@@ -47,19 +47,32 @@
     </div>
 </nav>
 
-	<div class="container">
+	 <div class="container-fluid bg-secondary-subtle d-flex justify-content-around align-items-center" style="height: 850px;">
 		<div>
-			<img src="/img/${product.productImage}">
+		<div class="text-center" >
+         <div class="card" style="width: 18rem;">
+			<img  class="card-img-top"  src="/img/${product.productImage}">
+	    <div class="card-body">
+		<p class="card-title m-1 fs-4 "> Autor: ${product.seller.name}</p>
+		<p class="card-text m-1 fs-4 " > Categoria: ${product.category.name}</p>
+		<p class="card-text m-1 fs-4 " > Precio: ${product.price}</p>
 		</div>
-		<h2>${product.seller.name}</h2>
-		<h2>${product.category.name}</h2>
-		<h2>${product.price}</h2>
-	</div>
+		</div>
+  </div>
+ </div>
+ 
+        <div class="m-4  d-flex flex-column">
+        <img alt="Publicidad" class="m-2" src="../icons/publicidad.png" style="height: 500px; width: 400px;" >
+        <img alt="Publicidad" class="m-2" src="../icons/publicidad2.png" style="height: 200px; width: 400px;" >
+       </div>
+        
+</div>
  <!-- footer -->
 <footer class=" container-fluid text-center text-lg-start btn text-muted" style="background-color: #9c27b0;">
   <section >
     <div class="container text-center text-md-start mt-5">
       <div class="row">
+       <img alt="Logo" src="../icons/logo3.png" class="d-inline-block align-text-top col-md-2" style="height: 10rem;">
         <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4 text-light">
         <h6 class="text-uppercase fw-bold mb-4"><i class="fas fa-gem me-3"></i>Pagina</h6>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p>

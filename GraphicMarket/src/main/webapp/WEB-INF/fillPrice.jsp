@@ -9,10 +9,11 @@
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</head>   
 
-</head>    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <body>
                  <!--  Nav  -->
 	<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #9c27b0;">
@@ -22,8 +23,8 @@
         <div class="d-flex flex-lg-row d-flex justify-content-around align-items-center">
             <!-- Logo y Título -->
             <a class="navbar-brand d-flex align-items-center" href="/main">
-                <img alt="carritoLogo" src="../icons/carrito.png" class="d-inline-block align-text-top m-2" style="height: 2rem;">
-                <span class="fs-2 ms-2 display-1 m-2">GraphicMarket</span>
+                <img alt="Logo" src="../icons/logo3.png" class="d-inline-block align-text-top" style="height: 5rem;">
+                <span class="fs-2 ms-2 display-1">GraphicMarket</span>
             </a>
             
             <!-- Sesión y registro -->
@@ -41,7 +42,7 @@
         
         <!-- Iconos en fila centrados -->
         <div class="d-flex justify-content-between mx-5">
-            <a class="text-light mx-5 fs-5 text-decoration-none display-3" href="#"><img alt="icono dado" src="#" style="height: 2rem;"></a>
+            <a class="text-light mx-5 fs-5 text-decoration-none display-3" href="#"><img alt="icono dado" src="../icons/dado.png" style="height: 2rem;"></a>
             <c:if test="${sellerInSession != null}">
                 <a class="text-light mx-5 fs-5  text-decoration-none display-3" href="/seller">Perfil </a>
             </c:if>
@@ -49,14 +50,53 @@
         </div>
     </div>
 </nav>
-        
+  <div class="container-fluid bg-secondary-subtle d-flex justify-content-around align-items-center" style="height: 850px;">
          <!--  conteiner -->
+       <div class="p-4 bg-light rounded shadow align-items-center text-center">
 	<form:form action="/product/create" method="post" modelAttribute="product">
-		<form:label path="price">Precio:</form:label>
+		<form:label  class="form-label fs-3 display-2" path="price">Precio:</form:label>
 		<form:input path="price" class="form-control" />
 		<form:errors path="price" class="text-danger"/>
 		
-		<input type="submit" class="btn btn-success mt-3" value="Registrar Producto">
+		<input type="submit" class="btn mt-3"  style="background-color: #9c27b0;" value="Registrar Producto">
 	</form:form>
+     </div>
+	</div>
+	 <!-- footer -->
+<footer class=" container-fluid text-center text-lg-start btn text-muted" style="background-color: #9c27b0;">
+  <section >
+    <div class="container text-center text-md-start mt-5">
+      <div class="row">
+       <img alt="Logo" src="../icons/logo3.png" class="d-inline-block align-text-top col-md-2" style="height: 10rem;">
+        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4 text-light">
+        <h6 class="text-uppercase fw-bold mb-4"><i class="fas fa-gem me-3"></i>Pagina</h6>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p>
+        </div>
+        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4 text-light">
+          <h6 class="text-uppercase fw-bold mb-4">Productos</h6>
+          <p><a href="#!" class="text-reset text-decoration-none">Logos</a></p>
+          <p><a href="#!" class="text-reset text-decoration-none">Iconos</a></p>
+          <p><a href="#!" class="text-reset text-decoration-none">Vectores</a></p>
+        </div>
+        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4 text-light">
+          <h6 class="text-uppercase fw-bold mb-4">Links</h6>
+          <p><a href="#!" class="text-reset text-decoration-none">Precios</a></p>
+          <p><a href="#!" class="text-reset text-decoration-none"> </a></p>
+          <p><a href="#!" class="text-reset text-decoration-none"></a></p>
+          <p><a href="#!" class="text-reset text-decoration-none">Ayuda</a></p>
+        </div>
+        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4 text-light">
+          <h6 class="text-uppercase fw-bold mb-4">contacto</h6>
+          <p><i class="fas fa-home me-3"></i> Argentina, Bs As </p>
+          <p> <i class="fas fa-envelope me-3"></i> graphicMarket@example.com </p>
+          <p><i class=" me-3"></i>@GraphicMarket</p>
+          <p><i class="fas fa-print me-3"></i> + 01 234 567 89</p>
+        </div>
+      </div>
+   </div>
+  </section>
+  <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">© 2024 GraphicMarket<a class="text-reset fw-bold" href="https://mdbootstrap.com/">Coding Dojo</a>
+  </div>
+</footer>
 </body>
 </html>
