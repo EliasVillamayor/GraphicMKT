@@ -48,9 +48,7 @@
     </div>
 </nav>
  <div class=" container-fluid p-3 bg-secondary-subtle text-secondary-emphasis" style="width: 100%;">
-    <c:forEach items="${kart.products}" var="product">
-		<p>${product}</p>
-	</c:forEach>
+   
  	 
  
   	<div class="row text-center" >
