@@ -70,7 +70,7 @@ public class SessionController {
 	@GetMapping("/logout")
 	public String logout(HttpSession session) {
 		session.removeAttribute("sellerInSession");
-		return "redirect:/";
+		return "redirect:/main";
 	}
 	
 }

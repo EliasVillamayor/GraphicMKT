@@ -45,12 +45,7 @@ public class ProductController {
 			HttpSession session,
 			Model model) {
 		
-		/* === REVISAMOS SESION === */
-		Seller sellerTemp = (Seller) session.getAttribute("sellerInSession"); //Obj User o null
-		if (sellerTemp == null) {
-			return "redirect:/";
-		}
-		/* === REVISAMOS SESION === */
+		
 		Product product=prodServ.findProduct(productId);
 		
 		model.addAttribute("product",product);

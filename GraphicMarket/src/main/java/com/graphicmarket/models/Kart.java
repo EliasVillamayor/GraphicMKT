@@ -36,7 +36,7 @@ public class Kart {
 		double temp = 0.0;
 		
 		if (this.products == null) {
-	        return 0.0; 
+	        return temp; 
 	    }
 		
 		for (Product product : this.products) {

@@ -27,12 +27,7 @@ public class BaseController {
 	public String main(HttpSession session,
 						Model model) {
 		
-		/* === REVISAMOS SESION === */
-		Seller sellerTemp = (Seller) session.getAttribute("sellerInSession"); //Obj User o null
-		if(sellerTemp == null) {
-			return "redirect:/";
-		}
-		/* === REVISAMOS SESION === */
+	
 		
 		List<Product> todosProductos = prodServ.allProducts();
 		model.addAttribute("todosProductos", todosProductos);
@@ -52,12 +47,7 @@ public class BaseController {
 	public String finalizarCompra(HttpSession session,
 									Model model) {
 		
-		/* === REVISAMOS SESION === */
-		Seller sellerTemp = (Seller) session.getAttribute("sellerInSession"); //Obj User o null
-		if(sellerTemp == null) {
-			return "redirect:/";
-		}
-		/* === REVISAMOS SESION === */
+		
 		
 		
 		
@@ -97,7 +87,7 @@ public class BaseController {
 		
 		
 		kart.addProduct(foundProduct);
-		System.out.println(kart.getProducts().get(0));
+	
 		
 		session.setAttribute("kart", kart);
 		

@@ -72,7 +72,7 @@
             	     <div class="card" style="width: 18rem;">
                 	    	<img  class="card-img-top"  src="../img/${product.productImage}">
                 	    	<div class="card-body">
-                	    	<p class="card-title m-2 fs-4">Precio: ${product.price}</p>
+                	    	<p class="card-title m-2 fs-4">U$D ${product.price}</p>
                 	    	<p  class="card-title m-2 fs-4">Categoria: ${product.category.name}</p>
                 	    	<a href="/product/${product.id}/edit" class="btn m-1" style="background-color: #9c27b0;">Cambiar Precio</a>
                 	    </div>

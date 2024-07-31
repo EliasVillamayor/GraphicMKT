@@ -42,6 +42,8 @@
             <a class="text-light mx-5 fs-5 text-decoration-none display-3" href="#"><img alt="icono dado" src="../icons/dado.png" style="height: 2rem;"></a>
             <c:if test="${sellerInSession != null}">
                 <a class="text-light mx-5 fs-5  text-decoration-none display-3" href="/seller">Perfil </a>
+                <a class="nav-link text-light" href="/logout">Cerrar sesion</a>
+                  
             </c:if>
             <a class="text-light mx-5 fs-5  text-decoration-none  display-3" href="/finalizarCompra">Carrito </a>
         </div>
@@ -58,17 +60,17 @@
   				
   				 <div class="card" style="width: 18rem;">
   					<img  class="card-img-top" src="/img/${product.productImage}">
-  				<div class="card-body">
-  					<p class="card-title m-1 fs-4 ">Precio: ${product.price}</p>
-  					<p class="card-text m-1 fs-4 ">Autor: ${product.seller.name}</p>
-  					<p class="card-text m-1 fs-4 ">Categoria: ${product.category.name}</p>
+  					<div class="card-body">
+  						<p class="card-title m-1 fs-4 ">U$D ${product.price}</p>
+  						<p class="card-text m-1 fs-4 ">Autor: ${product.seller.name}</p>
+  						<p class="card-text m-1 fs-4 ">Categoria: ${product.category.name}</p>
   					
-  					<form action="/agregarAlCarrito" method="post">
-  						<input type="hidden" value="${product.id}" name="productID">
-  						<input type="submit" value="Agregar al carrito" class="btn m-1"   style="background-color: #9c27b0;">
-  					</form>
+  						<form action="/agregarAlCarrito" method="post">
+  							<input type="hidden" value="${product.id}" name="productID">
+  							<input type="submit" value="Agregar al carrito" class="btn m-1"   style="background-color: #9c27b0;">
+  						</form>
   					
-  					<a href="/product/${product.id}" class="btn m-1"   style="background-color: #9c27b0;">Ver Producto</a>
+  						<a href="/product/${product.id}" class="btn m-1"   style="background-color: #9c27b0;">Ver Producto</a>
   				</div>
   			</div>
   		</div>

@@ -24,8 +24,7 @@ public class SellerController {
 	private SellerService sellServ;
 	
 	
-	@Autowired
-	private ImageService imgServ;
+	
 	
 	
 	@GetMapping("/seller")
